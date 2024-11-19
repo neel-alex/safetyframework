@@ -86,7 +86,7 @@ body {
 }
 
 .commitment-table li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
 }
 
 .commitment-table li:last-child {
@@ -179,7 +179,7 @@ h3 + .info-box {
 
 /* Updated list styling */
 .content-block {
-   padding-left: 2rem;
+   padding-left: 1.5rem;
 }
 
 .content-block ol {
@@ -190,9 +190,9 @@ h3 + .info-box {
 
 .content-block > ol > li {
    counter-increment: section;
-   margin-bottom: 1rem;
+   margin-bottom: 0.5rem;
    position: relative;
-   padding-left: 2rem;
+   padding-left: 1.5rem;
 }
 
 .content-block > ol > li:before {
@@ -204,7 +204,7 @@ h3 + .info-box {
 
 .content-block ol ol {
    counter-reset: subsection;
-   margin-top: 0.5rem;
+   margin-top: 0.3rem;
 }
 
 .content-block ol ol > li {
@@ -392,6 +392,159 @@ p, .content-block li, .commitment-table td, .commitment-table li {
     position: relative;
     opacity: 1;
     visibility: visible;
+}
+
+.tab[data-type="table"] {
+    background-color: #E5E5E5;
+}
+
+.tab[data-type="table"]:hover {
+    background-color: #D1D1D1;
+}
+
+.tab[data-type="table"].active {
+    background-color: #E5E5E5;
+}
+
+.tab[data-type="table"].active::after {
+    background-color: #808080;
+    height: 3px;
+}
+
+.tab-content[data-type="table"] {
+    background-color: #F8F8F8;
+}
+
+.tab[data-type="definitions"] {
+    background-color: #FFD4D4;
+}
+
+.tab[data-type="definitions"]:hover {
+    background-color: #FFB3B3;
+}
+
+.tab[data-type="definitions"].active {
+    background-color: #FFD4D4;
+}
+
+.tab[data-type="definitions"].active::after {
+    background-color: #FF6666;
+    height: 3px;
+}
+
+.tab-content[data-type="definitions"] {
+    background-color: #FFF7F7;
+}
+
+.tab[data-type="examples"] {
+    background-color: #FFE1D4;
+}
+
+.tab[data-type="examples"]:hover {
+    background-color: #FFC7B3;
+}
+
+.tab[data-type="examples"].active {
+    background-color: #FFE1D4;
+}
+
+.tab[data-type="examples"].active::after {
+    background-color: #FF9166;
+    height: 3px;
+}
+
+.tab-content[data-type="examples"] {
+    background-color: #FFF9F7;
+}
+
+
+.tab-content li {
+    color: #333;
+}
+
+.tab-content ul,
+.tab-content ol {
+    margin-left: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.tab-content ul:last-child,
+.tab-content ol:last-child {
+    margin-bottom: 0;
+}
+
+.tab-content li {
+    margin-bottom: 0.2rem;
+}
+
+.tab-content li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Table base styles */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0;
+}
+
+/* Reduce cell padding */
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem 0.5rem;
+}
+
+/* Header styles */
+.comparison-table th:first-child {
+    background-color: #aaa;
+    text-align: left;
+}
+
+.comparison-table th:nth-child(2) {
+    background-color: #B3C6FF;
+}
+
+.comparison-table th:nth-child(3) {
+    background-color: #B3DCD1;
+}
+
+.comparison-table th:nth-child(4) {
+    background-color: #D1B3FF;
+}
+
+/* First column styles */
+.comparison-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+/* Cell background colors */
+.comparison-table .check-cell {
+    background-color: #e6ffe6;
+}
+
+.comparison-table .partial-cell {
+    background-color: #fff3d4;
+}
+
+.comparison-table .cross-cell {
+    background-color: #ffe6e6;
+}
+
+/* Symbol styles */
+.comparison-table .checkmark {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.comparison-table .partial {
+    color: #f39c12;
+}
+
+.comparison-table .cross {
+    color: #e74c3c;
 }
 
 /* Typography */

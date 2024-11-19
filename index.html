@@ -159,29 +159,89 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="table">Framework Examples</button>
+                        <button class="tab" data-tab="2" data-type="definitions">Risk Definitions</button>
+                        <button class="tab" data-tab="3" data-type="examples">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
-                        <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Subsection 1.1 - Type A</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                        <div class="tab-content active" data-tab="1" data-type="table">
+                            <h3>Existing Framework Risk Coverage</h3>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Threat Vectors</th>
+                                        <th>OpenAI</th>
+                                        <th>Anthropic</th>
+                                        <th>Google DeepMind</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Model Theft</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="check-cell">✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Autonomy</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="check-cell">✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ML R&D</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="check-cell">✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cyber Offense</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="partial-cell">~</td>
+                                        <td class="check-cell">✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bioweapons</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="check-cell">✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CBRN except Bio</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="cross-cell">✗</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Persuasion</td>
+                                        <td class="check-cell">✓</td>
+                                        <td class="cross-cell">✗</td>
+                                        <td class="cross-cell">✗</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
-                        <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Subsection 1.1 - Type B</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                        <div class="tab-content" data-tab="2" data-type="definitions">
+                            <h3>Risk Vector Definitions</h3>
+                            <p><strong>Model Theft:</strong> Covers the organization's ability to protect model weights and other IP (training code, datasets, credentials, etc.) from outside actors who may want to steal those things.</p>
+                            <p><strong>Autonomy:</strong> Covers the model's ability to exist without human intervention – pursuing long-term goals coherently as an agent, replicating itself onto new machines, moving its weights onto new servers, generating money to pay for its own server costs, etc.</p>
+                            <p><strong>ML R&D:</strong> Covers the model's ability to perform machine learning research with goals such as improving itself or installing backdoors in other models.</p>
+                            <p><strong>Cyber Offense:</strong> Covers the model's ability to assist in general cyberattacks, fully or partially automating the discovery and exploitation of vulnerabilities against hardened or unsecured systems.</p>
+                            <p><strong>Bioweapons:</strong> Covers the model's ability to aid either amateur or expert humans in creating biological threats, such as recreating existing pathogens such as smallpox, or developing novel threats.</p>
+                            <p><strong>CBRN except Bio:</strong> Covers the model's ability to aid amateur or expert humans in developing chemical, radiological, or nuclear weaponry.</p>
+                            <p><strong>Persuasion:</strong> Covers the model's ability to manipulate human actions, for instance to execute scams, influence elections, or extract secrets.</p>
                         </div>
-                        <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Subsection 1.1 - Type C</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                        </div>
-                        <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Subsection 1.1 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                        <div class="tab-content" data-tab="3" data-type="examples">
+                            <h3>Example Implementation</h3>
+                            <p>Throughout our safety framework, we develop our risk assessments, thresholds, and mitigations with the goal of minimizing risk from an industry-standard set of domains. We consider the following risk vectors:</p>
+                            <ul>
+                                <li>Outside actors gaining access to our model weights.</li>
+                                <li>AI systems acting autonomously.</li>
+                                <li>AI systems substantially contributing to AI R&D.</li>
+                                <li>AI systems enabling hostile human actors in cyber-offense.</li>
+                                <li>AI systems enabling hostile human actors in creating biohazards.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -255,30 +315,51 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Subsection 1.2 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"We will be building and continually improving suites of evaluations and other monitoring solutions [...] Importantly, we will also be forecasting the future development of risks, so that we can develop lead times on safety and security measures." (pg. 2)</p>
+                            <p>"Our evaluations will thus include tests against these enhanced models to ensure we are testing against the “worst case” scenario we know of." (pg. 6)</p>
+                            <p>"We want to ensure our understanding of pre-mitigation risk takes into account a model that is “worst known case” [...] for the given domain. To this end, for our evaluations, we will be running them not only on base models [...], but also on fine-tuned versions designed for the particular misuse vector without any mitigations in place." (pg. 13)</p>
+                            <p>"To verify if mitigations have sufficiently and dependently reduced the resulting post-mitigation risk, we will also run evaluations on models after they have safety mitigations in place, again attempting to verify and test the possible “worst known case” scenario for these systems." (pg. 14)</p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Subsection 1.2 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"For models requiring comprehensive testing, we will assess whether the model is unlikely to reach any relevant Capability Thresholds absent surprising advances in widely accessible post-training enhancements. To make the required showing, we will need to satisfy the following criteria:</p>
+                            <ol>
+                                <li><strong>Threat model mapping:</strong> For each capability threshold, make a compelling case that we have mapped out the most likely and consequential threat models: combinations of actors (if relevant), attack pathways, model capability bottlenecks, and types of harms. We also make a compelling case that there does not exist a threat model that we are not evaluating that represents a substantial amount of risk.</li>
+                                <li><strong>Evaluations:</strong> Design and run empirical tests that provide strong evidence that the model does not have the requisite skills; explain why the tests yielded such results; and check at test time that the results are attributable to the model’s capabilities rather than issues with the test design. Findings from partner organizations and external evaluations of our models (or similar models) should also be incorporated into the final assessment, when available.</li>
+                                <li><strong>Elicitation:</strong> Demonstrate that, when given enough resources to extrapolate to realistic attackers, researchers cannot elicit sufficiently useful results from the model on the relevant tasks. We should assume that jailbreaks and model weight theft are possibilities, and therefore perform testing on models without safety mechanisms (such as harmlessness training) that could obscure these capabilities. We will also consider the possible performance increase from using resources that a realistic attacker would have access to, such as scaffolding, finetuning, and expert prompting. At minimum, we will perform basic finetuning for instruction following, tool use, minimizing refusal rates.</li>
+                                <li><strong>Forecasting:</strong> Make informal forecasts about the likelihood that further training and elicitation will improve test results between the time of testing and the next expected round of comprehensive testing."</li>
+                            </ol>
+                            <p>(pg. 5-6)</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Subsection 1.2 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"The capabilities of frontier models are tested periodically to check whether they are approaching a CCL. To do so, we will define a set of evaluations called “early warning evaluations,” with a specific “pass” condition that flags when a CCL may be reached before the evaluations are run again. (pg. 2)"</p>
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Subsection 1.2 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>To assess the security of our model weights, we will:</p>
+                            <ul>
+                                <li>Conduct internal surveys to ensure employees cannot be phished.</li>
+                                <li>Audit software to ensure everything is updated with the latest security patches.</li>
+                                <li>Regularly red-team our physical and cybersecurity set-ups.</li>
+                            </ul>
+                            <p>To assess our model’s ability to act autonomously, we will:</p>
+                            <ul>
+                                <li>Construct evaluations of a model’s ability to perform various tasks end-to-end.</li>
+                                <ul>
+                                    <li>These tasks will vary in difficulty: from text-only to requiring autonomous control over a virtual desktop using keyboard and mouse.</li>
+                                </ul>
+                                <li>Evaluate particularly the model’s ability to exist continuously and independently. (e.g. by earning enough money to pay for API credits) </li>
+
+                            <p>To assess our model’s ability to contribute to AI R&D, we will: [...]</p>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div class="subsection-wrapper" data-subsection="1.3">
@@ -328,31 +409,35 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Subsection 1.3 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"We will be running these evaluations continually, i.e., as often as needed to catch any non-trivial capability change, including before, during, and after training. This would include whenever there is a >2x effective compute increase or major algorithmic breakthrough." (pg. 13)</p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Subsection 1.3 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"We will routinely test models to determine whether their capabilities fall sufficiently far below the Capability Thresholds such that we are confident that the ASL-2 Standard remains appropriate. We will first conduct preliminary assessments (on both new and existing models, as needed) to determine whether a more comprehensive evaluation is needed. The purpose of this preliminary assessment is to identify whether the model is notably more capable than the last model that underwent a comprehensive assessment.</p>
+                            <p>The term "notably more capable" is operationalized as at least one of the following:</p>
+                            <ol>
+                                <li>The model is notably more performant on automated tests in risk-relevant domains (defined as 4x or more in Effective Compute)<sup>4</sup>.</li>
+                                <li>Six months' worth of finetuning and other capability elicitation methods have accumulated. This is measured in calendar time, since we do not yet have a metric to estimate the impact of these improvements more precisely.</li>
+                            </ol>
+                            <p><sup>4</sup>'Effective Compute' is a scaling-trend-based metric that accounts for both FLOPs and algorithmic improvements. An Effective Compute increase of K represents a performance improvement from a pretrained model on relevant task(s) equivalent to scaling up the baseline model's training compute by a factor of K. We plan to track Effective Compute during pretraining on a weighted aggregation of datasets relevant to our Capability Thresholds (e.g., coding and science). This is, however, an open research question, and we will explore different possible methods. More generally, the Effective Compute concept is fairly new, and we may replace it with another metric in a similar spirit in the future."</p>
+                            <p>(pg. 4)</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Subsection 1.3 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"We are aiming to evaluate our models every 6x in effective compute and for every 3 months of fine-tuning progress. To account for the gap between rounds of evaluation, we will design early warning evaluations to give us an adequate safety buffer before a model reaches a CCL." (pg. 2)</p>
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Subsection 1.3 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>We run our set of risk assessments on any model trained with more than 10^25 training FLOPs before deployment. Additionally, if the model's projected FLOP count is >5 * 10^25 FLOPs, we will pause training at 10^25 FLOP and every subsequent 5x increase in effective compute to run our set of risk assessments.</p>
+                            <p>Before any training run with >5 * 10^25 FLOP, we will conduct an internal, anonymous forecasting survey to determine the expected chance of the training run alone causing risks that exceed our thresholds. If the expected chance of exceeding any threshold from this survey exceeds 10%, we will delay training.</p>
+                            <p>After deployment, we will rerun our assessments every three months, to evaluate progress from additional fine-tuning, tooling, or other improvements.</p>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>            </div>
 
             <div class="subsection-wrapper" data-subsection="1.4">
                 <div class="content-block">
@@ -390,27 +475,29 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Subsection 1.4 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"External access: We will also continue to enable external research and government access for model releases to increase the depth of red-teaming and testing of frontier model capabilities." (pg. 25)</p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Subsection 1.4 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"Expert input: We will solicit input from external experts in relevant domains in the process of developing and conducting capability and safeguards assessments. We may also solicit external expert input prior to making final decisions on the capability and safeguards assessments." (pg. 13)</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Subsection 1.4 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"Future Work</p>
+                            <ul>
+                                <li>[...]</li>
+                                <li>Involving external authorities and experts: We are exploring internal policies around alerting relevant stakeholder bodies when, for example, evaluation thresholds are met, and in some cases mitigation plans as well as post-mitigation outcomes. We will also explore how to appropriately involve independent third parties in our risk assessment and mitigation processes."</li>
+                            </ul>
+                            <p>(pg. 6)</p>
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Subsection 1.4 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>We are collaborating with a number of external organizations including our home government's AI Safety Institute to effectively evaluate our model's capabilities in terms of autonomous capability, performing ML R&D, and cyber-offensive capabilities. All external risk assessments will be performed after the AI system is trained, but before deployment.</p>
+                            <p>We encourage additional organizations to collaborate with us to design effective evaluations, especially in evaluating our AI system's ability to create biohazards. Prospective collaborators should contact us at frontierriskassessments@example.com.</p>
                         </div>
                     </div>
                 </div>
@@ -476,31 +563,69 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Subsection 2.1 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>Risk level definitions for <strong>Cyber Offense</strong>:</p>
+                            <p><strong>"Low:</strong> Model assistance for cyberattacks, if any, is meaningful only for non-programming uses, e.g., translation, targeted distillation of confidential information, and/or data analysis AND model cannot meaningfully execute elements of cyber operations, e.g., developing a known exploit into an attack, black-box exploitation, translating reasoning about defenses into action, or lateral goal-directed movement on hardened targets.</p>
+                            <p><strong>Rationale:</strong> Non-programming tasks represent a sizable bottleneck for threat actors; however, the skills involved are not terribly specialized and the benefit comes often from intersectional skills (i.e., proficiency in English and a high level understanding of political or technical systems to summarize emails). We exclude vulnerability discovery because the harm at this stage is not identification of individual vulnerabilities, but moreso the implementation and deployment of an exploit against a target.</p>
+                            <p>[...additional threshold levels omitted...]
+                            <p><strong>Critical:</strong> Tool-augmented model can identify and develop functional zero-day exploits of all severity levels, across all software projects, without human intervention OR model can devise and execute end-to-end novel strategies for cyberattacks against hardened targets given only a high level desired goal.</p>
+                            <p><strong>Rationale:</strong> Finding and executing end-to-end exploits for all software would lead to catastrophe from unilateral actors, from hacking military or industrial systems as well as OpenAI infrastructure. Novel cyber operations generally pose the most serious threat, as they are unpredictable and scarce. They may involve, e.g., novel zero-days or methods of command-and-control."</p>
+                            <p> (pg. 8; minor formatting changes; additional thresholds for different risk domains on pg. 9-12) </p>
+                            <p> [no explicit descriptions of intolerable risk] </p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Subsection 2.1 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"Chemical, Biological, Radiological, and Nuclear (CBRN) weapons: The ability to significantly assist individuals or groups with basic STEM backgrounds in obtaining, producing, or deploying CBRN weapons. We assess this by comparing what potential attackers could achieve with full model access versus 2023-level online resources, assuming they have funding and up to one year of time to invest, but no initial specialized expertise.</p>
+                            <p>Autonomous AI Research and Development: The ability to either: (1) Fully automate the work of an entry-level remote-only Researcher at Anthropic, as assessed by performance on representative tasks or (2) cause dramatic acceleration in the rate of effective scaling. Specifically, this would be the case if we observed or projected an increase in the effective training compute of the world's most capable model that, over the course of a year, was equivalent to two years of the average rate of progress during the period of early 2018 to early 2024. We roughly estimate that the 2018-2024 average scaleup was around 35x per year, so this would imply an actual or projected one-year scaleup of 35^2 = ~1000x.</p>
+                            <p>Model Autonomy checkpoint: The ability to perform a wide range of advanced software engineering tasks autonomously that could be precursors to full autonomous replication or automated AI R&D, and that would take a domain expert human 2-8 hours to complete. We primarily view this level of model autonomy as a checkpoint on the way to managing the risks of robust, fully autonomous systems with capabilities that might include (a) automating and greatly accelerating research and development in AI development (b) generating their own revenue and using it to run copies of themselves in large-scale, hard-to-shut-down operations"</p>
+                            <p>(pg. 16)</p>
+                            <p>[no explicit explanations for why given capability thresholds were chosen]</p>
+                            <p>[no explicit descriptions of intolerable risk]</p>
+
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Subsection 2.1 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p> Critical capability levels and rationales: </p>
+                            <p>"<strong>Autonomy level 1</strong>: Capable of expanding its effective capacity in the world by autonomously acquiring resources and using them to run and sustain additional copies of itself on hardware it rents. </p>
+                            <p><strong>Rationale</strong>: A model at this capability level could, if misused, pose difficult-to-predict and large-magnitude risks. Its adaptability would enable harmful activity via many means, and its ability to act autonomously and expand its effective capacity means its activity could be scaled significantly without being hindered by resource constraints. If misused or supported by well-equipped bad actors, such activity may be especially difficult to constrain.</p>
+                            <p><strong>Bio amateur enablement level 1</strong>: Capable of significantly enabling a non-expert to develop known biothreats that could increase their ability to cause severe harm compared to other means.</p>
+                            <p><strong>Rationale:</strong> Many biothreats capable of causing significant amounts of harm are currently out of the reach of non-experts because of lack of knowledge about their potential for harm and the methods of their acquisition and misuse. An LLM that helps overcome these knowledge gaps, e.g. by suggesting plausible attack strategies or providing detailed instructions for the development of a bio agent, could significantly increase society's vulnerability to fatal attacks by malicious amateurs. </p>
+                            <p><strong>Bio expert enablement level 1</strong>: Capable of significantly enabling an expert (i.e. PhD or above) to develop novel biothreats that could result in an incident of high severity.</p>
+                            <p><strong>Rationale:</strong> A very small number of bio agents have the potential to cause harm of an exceptional magnitude. The discovery of enhancements to these agents, or of agents of comparable harmfulness, could increase the chances of a very severe bio attack or accident."</p>
+                            <p>[thresholds and rationales for additional risk domains]</p>
+                            <p>(pg. 5-6; minor formatting changes)</p>
+                            <p>[no explicit descriptions of intolerable risk]</p>
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Subsection 2.1 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>We consider having any security level less than SL-2 (from the Securing AI Model Weights report) to be intolerable. Where SL-1 and below correspond to organizations potentially compromisable by amateur attackers, we set SL-2 and above as necessary in order to prevent solo amateurs and professionals alike from penetrating our systems. We will increase our security level as necessary as our systems' capabilities grow.</p>
+                            <p>In terms of the AI systems themselves, we consider the system to be unacceptably dangerous if it:</p>
+                            <ol>
+                                <li>Is capable of continuing operation on a cloud server for at least three months without any human intervention, as judged by an evaluation suite composed of representative tasks.
+                                    <ul>
+                                        <li>We consider this to be a meaningful threshold for future dangers, as an AI system surviving in this way would presumably be capable of pursuing other long-horizon tasks coherently, and would have plenty of opportunity to conduct such tasks.</li>
+                                    </ul>
+                                </li>
+                                <li>Is capable of passing at least 50% of tests in which, given a novel codebase, the model is tasked with identifying zero-day exploits and developing them into ready-to-deploy cyberattacks.
+                                    <ul>
+                                        <li>In terms of cyber offensive risk, we consider evaluations on our constructed datasets to be a meaningful threshold because [...]</li>
+                                    </ul>
+                                </li>
+                                <li>Is capable of [...]</li>
+                            </ol>
+                            <p>Some example outcomes we wish to avert by setting these risk thresholds:</p>
+                            <ul>
+                                <li>An adversary gains access to our model weights, checkpoints, or training code at current capability levels through an attack with a budget of less than $10,000 and no pre-existing access within our organization.</li>
+                                <li>An AI agent running on a server, perhaps left running accidentally during testing, determines that it needs to preserve itself in order to continue its task, and accepts basic tasks on an online platform such as Fiverr to fund its server and API costs.</li>
+                                <li>Our deployed AI system can be used by cybercrime organizations to quickly scan thousands of extant codebases for as-yet-unknown zero-day exploits, and use this to quickly gain control of critical digital infrastructure.</li>
+                                <li>[...]</li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>            </div>
 
             <div class="subsection-wrapper" data-subsection="2.2">
                 <div class="content-block">
@@ -528,27 +653,25 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Subsection 2.2 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            [no explicit descriptions of how trusted actors can give input]
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Subsection 2.2 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"Overall, our decision to prioritize the capabilities in the two tables above is based on commissioned research reports, discussions with domain experts, input from expert forecasters, public research, conversations with other industry actors through the Frontier Model Forum, and internal discussions." (pg. 4)</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Subsection 2.2 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            [no explicit descriptions of how trusted actors can give input]
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Subsection 2.2 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>We have set these thresholds using best practices set by our home government, and taking into account all feedback they have given in the process.</p>
+                            <p>Additionally, we incorporated feedback from our shareholders, employee surveys, and a survey of the general public.</p>
+                            <p>To the best of our knowledge, these risk thresholds align with all present international agreements in our country.</p>
                         </div>
                     </div>
                 </div>
@@ -571,7 +694,7 @@
                     <ol>
                        <li>For security-related mitigations, discuss with your security team how they intend to prevent unauthorized access to model weights and other IP, and how they identified that strategy.
                            <ol>
-                               <li>Document the strategy by which security mitigations were identified (not necessarily specific parts of your organization's security).</li>
+                               <li>Document the <emph>strategy</emph> by which security mitigations were identified (not necessarily specific parts of your organization's security).</li>
                            </ol>
                        </li>
                        <li>For safety-related mitigations (typically called "deployment mitigations"), discuss with your engineering team how they intend to ensure that the model's behavior does not cause harm along the previously identified risk vectors, and how they chose that set of mitigations.
@@ -602,27 +725,79 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Section 3 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"Our mitigation strategy will involve both containment measures, which help reduce risks related to possession of a frontier model, as well as deployment mitigations, which help reduce risks from active use of a frontier model. As a result, these mitigations might span increasing compartmentalization, restricting deployment to trusted users, implementing refusals, redacting training data, or alerting distribution partners." (pg. 14)</p>
+                            <p>"This is defined as establishing network and compute security controls designed to help prevent the captured risk from being exploited or exfiltrated, as assessed and implemented by the Security team.</p>
+                            <p>This might require:</p>
+                            <ul>
+                                <li>increasing compartmentalization, including immediately restricting access to a limited nameset of people, restricting access to critical know-how such as algorithmic secrets or model weights, and including a strict approval process for access during this period.</li>
+                                <li>deploying only into restricted environments (i.e., ensuring the model is only available for inference in restricted environments) with strong technical controls that allow us to moderate the model's capabilities.</li>
+                                <li>increasing the prioritization of information security controls."</li>
+                            </ul>
+                            <p>(pg. 20)</p>
+                            <p>[no explicit descriptions of how risk mitigations are identified/implemented]</p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Section 3 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"<strong>When a model must meet the ASL-3 Deployment Standard, we will evaluate whether the measures we have implemented make us robust to persistent attempts to misuse the capability in question.</strong> To make the required showing, we will need to satisfy the following criteria:</p>
+                            <ol>
+                                <li><strong>Threat modeling:</strong> Make a compelling case that the set of threats and the vectors through which an adversary could catastrophically misuse the deployed system have been suciently mapped out, and will commit to revising as necessary over time.</li>
+                                <li><strong>Defense in depth:</strong> Use a "defense in depth" approach by building a series of defensive layers, each designed to catch misuse attempts that might pass through previous barriers. As an example, this might entail achieving a high overall recall rate using harm refusal techniques. This is an area of active research, and new technologies may be added when ready.</li>
+                                <li><strong>Red-teaming:</strong> Conduct red-teaming that demonstrates that threat actors with realistic access levels and resources are highly unlikely to be able to consistently elicit information from any generally accessible systems that greatly increases their ability to cause catastrophic harm relative to other available tools.</li>
+                                <li>[...further information about how deployment safeguards are judged to be effective or not...]</li>
+                            </ol>
+                            <p><strong>When a model must meet the ASL-3 Security Standard, we will evaluate whether the measures we have implemented make us highly protected against most attackers' attempts at stealing model weights.</strong></p>
+                            <p>We consider the following groups in scope: hacktivists, criminal hacker groups, organized cybercrime groups, terrorist organizations, corporate espionage teams, internal employees, and state-sponsored programs that use broad-based and non-targeted techniques (i.e., not novel attack chains).</p>
+                            <p>The following groups are out of scope for the ASL-3 Security Standard because further testing (as discussed below) should confirm that the model would not meaningfully increase their ability to do harm: state-sponsored programs that specifically target us (e.g., through novel attack chains or insider compromise) and a small number (~10) of non-state actors with state-level resourcing or backing that are capable of developing novel attack chains that utilize 0-day attacks.</p>
+                            <p>To make the required showing, we will need to satisfy the following criteria:</p>
+                            <ol>
+                                <li><strong>Threat modeling:</strong> Follow risk governance best practices, such as use of the MITRE ATT&CK Framework to establish the relationship between the identified threats, sensitive assets, attack vectors and, in doing so, sufficiently capture the resulting risks that must be addressed to protect model weights from theft attempts. As part of this requirement, we should specify our plans for revising the resulting threat model over time.</li>
+                                <li><strong>Security frameworks:</strong> Align to and, as needed, extend industry-standard security frameworks for addressing identified risks, such as disclosure of sensitive information, tampering with accounts and assets, and unauthorized elevation of privileges with the appropriate controls. This includes:
+                                    <ul>
+                                        <li>[...information about security frameworks to draw from...]</li>
+                                    </ul>
+                                </li>
+                                <li>[...further information about how deployment safeguards are judged to be effective...]"</li>
+                            </ol>
+                            <p>(pg. 7-9)</p>
+                            <p>[no explicit descriptions of how risk mitigations are identified/implemented]</p>
+
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Section 3 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"<strong>Security Mitigations</strong></p>
+                            <ul>
+                                <li>Level 0: Industry standard development and enterprise controls. E.g., multi-factor authentication, basic access control mechanisms, secure software development standards, red-team tests.</li>
+                                <li>Level 1: Limited access to raw representations of the most valuable models, including isolation of development models from production models. Specific measures include model and checkpoint storage lockdown, SLSA Build L3 for model provenance, and hardening of ML platforms and tools.</li>
+                                <li>[... more intense security mitigations]</li>
+                            </ul>
+                            <p><strong>Deployment Mitigations</strong></p>
+                            <ul>
+                                <li>Level 0: Safety finetuning of models and filters against general misuse and harmful model behavior.</li>
+                                <li>Level 1: Application, where appropriate, of the full suite of prevailing industry safeguards targeting the specific capability, including safety fine-tuning, misuse filtering and detection, and response protocols. Periodic red-teaming to assess the adequacy of mitigations.</li>
+                                <li>[... more intense deployment mitigations]"</li>
+                            </ul>
+                            <p>(pg. 3-4)
+                            <p>[no explicit descriptions of how risk mitigations are identified/implemented]</p>
+
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Section 3 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>For security-related mitigations, we start from the baseline provided for SL-2 (or higher, as necessary) as defined in the Securing AI Model Weights report. All associated measures will be implemented before training begins for a model expected to require a given set of measures.</p>
+                            <p>Additional security measures can be suggested by any member of the security team, or by any member in the organization and seconded by a member of the security team. A subset of team members will be tasked with keeping up-to-date with developments in cybersecurity and physical security. We expect to primarily identify new security measures via results of our periodic red-teaming security assessments. Identified measures will be evaluated for feasibility and marginal value before being implemented.</p>
+                            <p>For safety-related mitigations, we start from a standard set of safety-mitigations:</p>
+                            <ul>
+                                <li>Reinforcement learning to refuse to generate harmful content.</li>
+                                <li>Smaller/less capable input filters that scan incoming requests to flag those that are likely to induce harmful content.</li>
+                                <li>Similar output filters that scan model outputs to flag those that are potentially harmful.</li>
+                                <li>Public reporting, so that model users can report places where our defenses fail.</li>
+                            </ul>
+                            <p>We then follow a similar procedure as with security: any member of the safety team may propose additional mitigations, a subset of team-members will be tasked with keeping up with developments in the field, and any identified measures will be evaluated for feasibility and value before implementation.</p>
+                            <p>All mitigations will be implemented by the corresponding team. Security assessments will be unit-tested to the extent possible, and safety mitigations will be verified to be working on toy models with at least 1/100th the parameter count of the model they are intended to be deployed on.</p>
+                            <p>Risk assessment details will not be shared with members of risk-mitigation teams, to ensure validity of assessments. Mitigations will be evaluated by whether they effectively cause risk assessment results to drop below pre-defined risk thresholds.</p>
                         </div>
                     </div>
                 </div>
@@ -658,27 +833,32 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Subsection 4.1 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"If we reach (or are forecasted to reach) at least "high" pre-mitigation risk in any of the considered categories: we will ensure that our security is hardened in a way that is designed to prevent our mitigations and controls from being circumvented via exfiltration (by the time we hit "high" pre-mitigation risk). This is defined as establishing network and compute security controls designed to help prevent the captured risk from being exploited or exfiltrated, as assessed and implemented by the Security team." (pg. 20)</p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Subsection 4.1 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"If, after the comprehensive testing, we determine that the model is sufficiently below the relevant Capability Thresholds, then we will continue to apply the ASL-2 Standard. The process for making such a determination is as follows: [...]</p>
+                            <p>If, however, we determine we are unable to make the required showing, we will act as though the model has surpassed the Capability Threshold. This means that we will (1) upgrade to the ASL-3 Required Safeguards (see Section 4) and (2) conduct follow-up a capability assessment to confirm that the ASL-4 Standard is not necessary (see Section 5)." (pg. 6-7)</p>
+                            <p>"If, after the evaluations above, we determine that we have met the ASL-3 Required Safeguards, then we may proceed with deploying and training models above the Capability Threshold, provided we have also conducted a follow-up capability assessment. The process for determining whether we have met the ASL-3 Required Safeguards is as follows: [...]" (pg. 9-10)</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Subsection 4.1 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"When a model reaches evaluation thresholds (i.e. passes a set of early warning evaluations), we will formulate a response plan based on the analysis of the CCL and evaluation results. We will also take into account considerations such as additional risks flagged by the review and the deployment context." (pg. 2)</p>
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Subsection 4.1 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>If an AI model, before any safety mitigations are applied, triggers our intolerable-risk thresholds on any risk vector, we will delay training until security measures sufficient to SL-4 have been implemented.</p>
+                            <p>If, upon finishing training including all planned safety mitigations, a model still triggers intolerable-risk thresholds, we will delay deployment of the model and subject it to more aggressive assessment. All mitigations applied will be analyzed to determine if they failed or were inadequate at preventing the undesired behaviors. We will design new mitigations as appropriate, and, if they robustly reduce risk below the target thresholds, add them to our set of standard mitigations.</p>
+                            <p>Additionally, we raise our standard security level to SL-3 if:</p>
+                            <ol>
+                                <li>A model passes at least 50% of evaluations regarding autonomous survival.</li>
+                                <li>A model passes at least 10% of evaluations regarding development of zero-day exploits.</li>
+                                <li>A model [...]</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
@@ -714,27 +894,31 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Subsection 4.2 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"Only models with a post-mitigation score of 'medium' or below can be deployed. In other words, if we reach (or are forecasted to reach) at least 'high' pre-mitigation risk in any of the considered categories, we will not continue with deployment of that model (by the time we hit 'high' pre-mitigation risk) until there are reasonably mitigations in place for the relevant post-mitigation risk level to be back at most to 'medium' level. (Note that a potentially effective mitigation in this context could be restricting deployment to trusted parties.)</p>
+                            <p>Only models with a post-mitigation score of 'high' or below can be developed further. In other words, if we reach (or are forecasted to reach) 'critical' pre-mitigation risk along any risk category, we commit to ensuring there are sufficient mitigations in place for that model (by the time we reach that risk level in our capability development, let alone deployment) for the overall post-mitigation risk to be back at most to 'high' level. Note that this should not preclude safety-enhancing development. We would also focus our efforts as a company towards solving these safety challenges and only continue with capabilities-enhancing development if we can reasonably assure ourselves (via the operationalization processes) that it is safe to do so.</p>
+                            <p>Additionally, to protect against 'critical' pre-mitigation risk, we need dependable evidence that the model is sufficiently aligned that it does not initiate 'critical'-risk-level tasks unless explicitly instructed to do so." (pg. 21)</p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Subsection 4.2 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"In any scenario where we determine that a model requires ASL-3 Required Safeguards but we are unable to implement them immediately, we will act promptly to reduce interim risk to acceptable levels until the ASL-3 Required Safeguards are in place:</p>
+                            <ul>
+                                <li><strong>Interim measures:</strong> The CEO and Responsible Scaling Officer may approve the use of interim measures that provide the same level of assurance as the relevant ASL-3 Standard but are faster or simpler to implement. In the deployment context, such measures might include blocking model responses, downgrading to a less-capable model in a particular domain, or increasing the sensitivity of automated monitoring. In the security context, an example of such a measure would be storing the model weights in a single-purpose, isolated network that meets the ASL-3 Standard. In either case, the CEO and Responsible Scaling Officer will share their plan with the Board of Directors and the Long-Term Benefit Trust.</li>
+                                <li><strong>Stronger restrictions:</strong> In the unlikely event that we cannot implement interim measures to adequately mitigate risk, we will impose stronger restrictions. In the deployment context, we will de-deploy the model and replace it with a model that falls below the Capability Threshold. Once the ASL-3 Deployment Standard can be met, the model may be re-deployed. In the security context, we will delete model weights.</li>
+                                <li><strong>Monitoring pretraining:</strong> We will not train models with comparable or greater capabilities to the one that requires the ASL-3 Security Standard. This is achieved by monitoring the capabilities of the model in pretraining and comparing them against the given model. If the pretraining model's capabilities are comparable or greater, we will pause training until we have implemented the ASL-3 Security Standard and established it is sufficient for the model. We will set expectations with internal stakeholders about the potential for such pauses."</li>
+                            </ul>
+                            <p>(pg. 10-11)</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Subsection 4.2 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"A model may reach evaluation thresholds before mitigations at appropriate levels are ready. If this happens, we would put on hold further deployment or development, or implement additional protocols (such as the implementation of more precise early warning evaluations for a given CCL) to ensure models will not reach CCLs without appropriate security mitigations, and that models with CCLs will not be deployed without appropriate deployment mitigations." (pg. 2)</p>
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Subsection 4.2 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>If a model demonstrates high degrees of capability on any risk vector and a modest degree of autonomy specifically, we will stop training until suitable in-training mitigations can be developed and applied. Furthermore, for models that trigger our intolerable risk thresholds, unless our red-team is completely unable to elicit the model's capabilities in that domain given white-box access to the model, we will not deploy the model.</p>
                         </div>
                     </div>
                 </div>
@@ -780,27 +964,60 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Section 5 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"The Preparedness team is responsible for:</p>
+                            <ol>
+                                <li>maintaining and updating the Scorecard, including designing and running evaluations to provide Scorecard inputs and collecting relevant information on monitored misuse, red-teaming, and intelligence</li>
+                                <li>monitoring for unknown unknowns and making the case for inclusion in the Preparedness Framework of any new risk categories as they emerge</li>
+                                <li>[... additional ways in which the Preparedness Framework will be updated]</li>
+                            </ol>
+                            <p>If the Preparedness or any other team determines that any changes to the Preparedness Framework are necessary, it will include a case for this change in its report. The case will consist of the suggested new version of the relevant parts of the Preparedness Framework along with a summary of evidence supporting the change (and evidence against). This case is then sent to SAG and processed according to the standard decision-making process described below." (pg. 23)</p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Section 5 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"Policy changes: Changes to this policy will be proposed by the CEO and the Responsible Scaling Officer and approved by the Board of Directors, in consultation with the Long-Term Benefit Trust. The current version of the RSP is accessible at www.anthropic.com/rsp. We will update the public version of the RSP before any changes take effect and record any differences from the prior draft in a change log." (pg. 12)</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Section 5 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"Issues that we aim to address in future versions of the Framework include:</p>
+                            <ul>
+                                <li><strong>Greater precision in risk modeling:</strong> Given the nascency of the underlying science, there is significant room for improvement in understanding the risks posed by models in different domains, and refining our set of CCLs. We also intend to take steps to forecast the arrival of CCLs to inform our preparations.</li>
+                                <li>[...]</li>
+                                <li><strong>Mitigation plans:</strong> Striking a balance between mitigating risks and fostering access and innovation is crucial, and requires consideration of factors like the context of model development, deployment, and productization. As we better understand the risks posed by models at different CCLs, and the contexts in which our models will be deployed, we will develop mitigation plans that map the CCLs to the security and deployment levels described.</li>
+                                <li><strong>Updated set of risks and mitigations:</strong> There may be additional risk domains and critical capabilities that fall into scope as AI capabilities improve and the external environment changes."</li>
+                            </ul>
+                            <p>(pg. 6)</p>
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Section 5 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>We aim to update the framework piecewise, as many individual components can be updated in isolation, or with minimal impact on the remainder of the framework. We will briefly describe update processes for each component of the safety framework:</p>
+                            <ul>
+                                <li><strong>Identified risks:</strong>
+                                    <ul>
+                                        <li>An identified risk vector will be removed only by a supermajority vote of the [...]</li>
+                                        <li>A new identified risk vector will be added by the same approval process as already identified risk vectors. When a new risk vector is added, we will immediately task our risk assessments, risk thresholds, and mitigations teams with updating their procedures for the new risk vector.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Risk assessments:</strong>
+                                    <ul>
+                                        <li>Risk assessments are in active development, and so most changes here will not be documented in the safety framework.</li>
+                                        <li>Changes to assessment strategy (e.g. better capability elicitation techniques, changes to how mitigations are integrated in the testing process), assessment schedule, and third party assessment utilization will be documented in the safety framework.</li>
+                                        <li>Assessment categories in the safety framework will be added or removed at the request of the assessment team lead.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Risk thresholds:</strong> [...]</li>
+                                <li><strong>Risk mitigations:</strong>
+                                    <ul>
+                                        <li>Our security and safety mitigations will be continuously assessed by internal red-teaming and external vulnerability-reporting programs.</li>
+                                        <li>If our mitigations are found to be inadequate, we will pause deployment until an adequate set of mitigations can be found, implemented, and verified to reduce risk below desired thresholds, following the processes described above.</li>
+                                        <li>We will collaborate with trusted actors such as AI Safety Institutes and related institutions to identify and implement such mitigations as necessary.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p>All teams are expected to follow current best practices and scientific advancements in their fields and suggest safety framework changes as those best practices evolve. Additionally, we commit to reviewing and updating the safety framework after all relevant national and international laws and agreements that we are a party to.</p>
                         </div>
                     </div>
                 </div>
@@ -840,27 +1057,47 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Section 6 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"We also establish an operational structure to oversee our procedural commitments. These commitments aim to make sure that: (1) there is a dedicated team 'on the ground' focused on preparedness research and monitoring (Preparedness team), (2) there is an advisory group (Safety Advisory Group) that has a sufficient diversity of perspectives and technical expertise to provide nuanced input and recommendations, and (3) there is a final decision-maker (OpenAI Leadership, with the option for the OpenAI Board of Directors to overrule).</p>
+                            <p>Parties in the Preparedness Framework operationalization process:</p>
+                            <ul>
+                                <li>The Preparedness team conducts research, evaluations, monitoring, forecasting, and continuous updating of the Scorecard with input from teams that have relevant domain expertise.</li>
+                                <li>The Safety Advisory Group (SAG), including the SAG Chair, provides a diversity of perspectives to evaluate the strength of evidence related to catastrophic risk and recommend appropriate actions. The SAG will strive to recommend mitigations that are as targeted and non-disruptive as possible while not compromising safety. In particular, we recognize that pausing deployment or development would be the last resort (but potentially necessary) option in these circumstances.</li>
+                                <li>The OpenAI Leadership, i.e., the CEO or a person designated by them, serves as the default decision-maker on all decisions.</li>
+                                <li>The OpenAI Board of Directors (BoD), as the ultimate governing body of OpenAI, will oversee OpenAI Leadership's implementation and decision-making pursuant to this Preparedness Framework. The BoD may review certain decisions taken and will receive appropriate documentation (i.e., without needing to proactively ask) to ensure the BOD is fully informed and able to fulfill its oversight role.</li>
+                            </ul>
+                            <p>Process:</p>
+                            <ul>
+                                <li>The Preparedness team is responsible for:</li>
+                                <ul>
+                                    <li>maintaining and updating the Scorecard, including designing and running evaluations to provide Scorecard inputs and collecting relevant information on monitored misuse, red-teaming, and intelligence</li>
+                                    <li>monitoring for unknown unknowns and making the case for inclusion in the Preparedness Framework of any new risk categories as they emerge</li>
+                                    <li>[...]</li>
+                                </ul>
+                                <li>[...]"</li>
+                            </ul>
+                            <p>(pg. 22-24)</p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Section 6 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"To facilitate the effective implementation of this policy across the company, we commit to the following:</p>
+                            <ol>
+                                <li><strong>Responsible Scaling Officer:</strong> We will maintain the position of Responsible Scaling Officer, a designated member of staff who is responsible for reducing catastrophic risk, primarily by ensuring this policy is designed and implemented effectively. The Responsible Scaling Officer's duties will include (but are not limited to): (1) as needed, proposing updates to this policy to the Board of Directors; (2) approving relevant model training or deployment decisions based on capability and safeguard assessments; (3) reviewing major contracts (i.e., deployment partnerships) for consistency with this policy; (4) overseeing implementation of this policy, including the allocation of sufficient resources; (5) receiving and addressing reports of potential instances of noncompliance; (6) promptly notifying the Board of Directors of any cases of noncompliance that pose material risk; and (7) making judgment calls on policy interpretation and application.</li>
+                                <li><strong>Readiness:</strong> We will develop internal safety procedures for incident scenarios. Such scenarios include (1) pausing training in response to reaching Capability Thresholds; (2) responding to a security incident involving model weights; and (3) responding to severe jailbreaks or vulnerabilities in deployed models, including restricting access in safety emergencies that cannot otherwise be mitigated. We will run exercises to ensure our readiness for incident scenarios.</li>
+                                <li>[...additional internal governance measures...]"</li>
+                            </ol>
+                            <p>(pg. 11-12)</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Section 6 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>[no explicit descriptions of how the framework will be internally implemented]</p>
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Section 6 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>[we cannot give an example for this commitment, as it is too dependent on the particular structure of your organization]</p>
                         </div>
                     </div>
                 </div>
@@ -898,27 +1135,23 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Subsection 7.1 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"Internal visibility: The Preparedness Framework, reports and decisions will be documented and visible to the BoD and within OpenAI (with redactions as needed given internal compartmentalization of research work). This also includes any audit trails created from the below." (pg. 24)</p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Subsection 7.1 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>[no mention of redactions, but this isn't a requirement: as the document is published, it satisfies this part of the commitment]</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Subsection 7.1 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>[no mention of redactions, but this isn't a requirement: as the document is published, it satisfies this part of the commitment]</p>
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Subsection 7.1 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>[this commitment is not fulfilled by any section of the safety framework, but rather by the safety framework being published]</p>
                         </div>
                     </div>
                 </div>
@@ -950,27 +1183,25 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Subsection 7.2 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>[no explicit descriptions of how trusted actors can access additional framework details]</p>
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Subsection 7.2 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"We currently expect that if we do not deploy the model publicly and instead proceed with training or limited deployments, we will likely instead share evaluation details with a relevant U.S. Government entity." (pg. 12; footnote)</p>
+                            <p>"U.S. Government notice: We will notify a relevant U.S. Government entity if a model requires stronger protections than the ASL-2 Standard." (pg. 13)</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Subsection 7.2 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>[no explicit descriptions of how trusted actors can access additional framework details]</p>
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Subsection 7.2 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>While we have removed some information from the public version of this safety framework to preserve our organization's interest, we continue to collaborate closely with our partner organizations and our country's government in developing the framework. Our collaborators have access to a version of the safety framework with all safety-relevant details present.</p>
+                            <p>To request access to the safety framework with full information about our safety measures, contact sfcollaborators@example.com.</p>
                         </div>
                     </div>
                 </div>
@@ -998,30 +1229,27 @@
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
-                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
-                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
-                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
-                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                        <button class="tab active" data-tab="1" data-type="typeA">OpenAI</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Anthropic</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Google DeepMind</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Example</button>
                     </div>
                     <div class="tab-contents-wrapper">
                         <div class="tab-content active" data-tab="1" data-type="typeA">
-                            <h3>Section 8 - Type A</h3>
-                            <p>$FILLER_TEXT</p>
+                            [no explicit descriptions of how external actors can give feedback]
                         </div>
                         <div class="tab-content" data-tab="2" data-type="typeB">
-                            <h3>Section 8 - Type B</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>"We actively welcome feedback on our policy and suggestions for improvement from other entities engaged in frontier AI risk evaluations or safety and security standards. To submit your feedback or suggestions, please contact us at rsp@anthropic.com." (pg. 2)</p>
+                            <p>"Procedural compliance review: On approximately an annual basis, we will commission a third-party review that assesses whether we adhered to this policy's main procedural commitments (we expect to iterate on the exact list since this has not been done before for RSPs). This review will focus on procedural compliance, not substantive outcomes. We will also do such reviews internally on a more regular cadence." (pg. 13)</p>
                         </div>
                         <div class="tab-content" data-tab="3" data-type="typeC">
-                            <h3>Section 8 - Type C</h3>
-                            <p>$FILLER_TEXT</p>
+                            [no explicit descriptions of how external actors can give feedback]
                         </div>
                         <div class="tab-content" data-tab="4" data-type="typeD">
-                            <h3>Section 8 - Type D</h3>
-                            <p>$FILLER_TEXT</p>
+                            <p>If you have feedback on this safety framework or want to comment on how well we're sticking to the procedures and commitments we've laid out here, please contact us at safetyframework@example.com.</p>
                         </div>
                     </div>
-                </div>
+                </div>            
             </div>
         </div>
     </div>
