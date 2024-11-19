@@ -3,10 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Site</title>
+    <title>Content Sections with Related Auxiliary Content</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hello World</h1>
-    <p>This is my website.</p>
+    <div class="container">
+        <main class="left-panel">
+            <!-- Example of two sections - repeat this pattern for all 14 -->
+            <section class="content-block" data-section="1">
+                <h2>Section 1</h2>
+                <p>Main content for section 1...</p>
+            </section>
+
+            <section class="content-block" data-section="2">
+                <h2>Section 2</h2>
+                <p>Main content for section 2...</p>
+            </section>
+            <!-- Add remaining sections -->
+        </main>
+        
+        <aside class="right-panel">
+            <div class="tabs">
+                <button class="tab active" data-tab="1">Type A</button>
+                <button class="tab" data-tab="2">Type B</button>
+                <button class="tab" data-tab="3">Type C</button>
+                <button class="tab" data-tab="4">Type D</button>
+            </div>
+            
+            <!-- Section 1 auxiliary content -->
+            <div class="section-auxiliary" data-section="1">
+                <div class="tab-content" data-tab="1">
+                    <h3>Section 1 - Type A</h3>
+                    <p>Auxiliary content A for section 1...</p>
+                </div>
+                <div class="tab-content" data-tab="2">
+                    <h3>Section 1 - Type B</h3>
+                    <p>Auxiliary content B for section 1...</p>
+                </div>
+                <div class="tab-content" data-tab="3">
+                    <h3>Section 1 - Type C</h3>
+                    <p>Auxiliary content C for section 1...</p>
+                </div>
+                <div class="tab-content" data-tab="4">
+                    <h3>Section 1 - Type D</h3>
+                    <p>Auxiliary content D for section 1...</p>
+                </div>
+            </div>
+
+            <!-- Section 2 auxiliary content -->
+            <div class="section-auxiliary" data-section="2">
+                <div class="tab-content" data-tab="1">
+                    <h3>Section 2 - Type A</h3>
+                    <p>Auxiliary content A for section 2...</p>
+                </div>
+                <div class="tab-content" data-tab="2">
+                    <h3>Section 2 - Type B</h3>
+                    <p>Auxiliary content B for section 2...</p>
+                </div>
+                <div class="tab-content" data-tab="3">
+                    <h3>Section 2 - Type C</h3>
+                    <p>Auxiliary content C for section 2...</p>
+                </div>
+                <div class="tab-content" data-tab="4">
+                    <h3>Section 2 - Type D</h3>
+                    <p>Auxiliary content D for section 2...</p>
+                </div>
+            </div>
+            <!-- Repeat for remaining 12 sections -->
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

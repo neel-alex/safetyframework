@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.left-panel {
+    flex: 7;
+    padding: 2rem;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+}
+
+.right-panel {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    max-width: 400px;
+}
+
+.content-block {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8f8f8;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.content-block:hover {
+    background: #f0f0f0;
+}
+
+.content-block.active {
+    background: #e8e8e8;
+    border-left: 3px solid #000;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    background: #f8f8f8;
+    position: sticky;
+    top: 0;
+}
+
+.tab {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex: 1;
+    text-align: center;
+}
+
+.tab.active {
+    background: white;
+    border-bottom: 2px solid #000;
+}
+
+.section-auxiliary {
+    display: none;
+}
+
+.section-auxiliary.active {
+    display: block;
+}
+
+.tab-content {
+    display: none;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+        height: auto;
+    }
+
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-panel {
+        flex: none;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        max-height: none;
+    }
+
+    .right-panel {
+        flex: none;
+        min-width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .tab-content {
+        max-height: 50vh;
+    }
+
+    .left-panel,
+    .tab-content {
+        padding: 1rem;
+    }
+
+    .tab {
+        padding: 0.5rem;
+    }
+}
+
+/* Medium-size screen adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .right-panel {
+        min-width: 200px;
+    }
+}
