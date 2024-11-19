@@ -3,56 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content Sections with Related Auxiliary Content</title>
+    <title>Your Page Title</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <main class="left-panel">
-            <!-- Example of two sections - repeat this pattern for all 14 -->
-            <section class="content-block" data-section="1">
-                <h2>Section 1</h2>
-                <p>Main content for section 1...</p>
-            </section>
+    <header class="page-header">
+        <h1>Your Page Title</h1>
+        <div class="metadata">
+            <p>Author: Your Name</p>
+            <p>Contact: your.email@example.com</p>
+            <p>Last Updated: November 19, 2024</p>
+        </div>
+    </header>
 
-            <section class="content-block" data-section="2">
-                <h2>Section 2</h2>
-                <p>Main content for section 2...</p>
-            </section>
-            <!-- Add remaining sections -->
-        </main>
-        
-        <aside class="right-panel">
+    <!-- Desktop Layout (flattened) -->
+    <div class="container">
+        <!-- Section 1 -->
+        <div class="content-block" data-section="1">
+            <h2>Section 1</h2>
+            <p>Main content for section 1...</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <p>Curabitur suscipit dui sapien, ut mollis nulla posuere eget. Vivamus sodales venenatis nisl sed accumsan. Proin sed consectetur mi, id varius dui. Integer cursus augue sit amet porta luctus. Aenean auctor ipsum a sollicitudin scelerisque. Fusce vel enim dignissim, viverra elit suscipit, tristique nisi. Nam imperdiet, leo non tristique tempor, tellus erat rhoncus augue, eget blandit arcu quam in urna. Nulla facilisi. In sit amet nunc non massa malesuada tempus. Suspendisse id odio mollis, eleifend sapien in, sagittis arcu. Morbi consectetur turpis tortor, quis interdum nunc aliquam et. In suscipit est non lorem rutrum commodo. Morbi at aliquam enim. Nulla sollicitudin tempus sollicitudin. Sed sed urna augue. Ut lobortis molestie mi, et vestibulum lectus condimentum ut.</p>
+            <p>Duis tellus felis, convallis id tincidunt in, commodo nec dolor. Mauris sed vestibulum ipsum. Quisque orci enim, faucibus nec venenatis efficitur, lacinia vel risus. Donec euismod nisi quis augue tincidunt accumsan. Pellentesque eu tellus eget dolor efficitur convallis. Curabitur consequat sollicitudin blandit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque ac metus id sem consequat bibendum a ut sapien. Sed sodales est sed cursus maximus. Aenean condimentum ligula sit amet nulla euismod, in fringilla libero tincidunt. Vestibulum facilisis viverra dignissim. Donec et purus id tortor aliquam elementum. Aliquam purus felis, dignissim nec augue a, molestie euismod dolor. Fusce varius nisl nunc, eget feugiat sem sodales sed. Praesent scelerisque hendrerit suscipit. Ut in vestibulum quam, sit amet accumsan lacus.</p>
+            <p>Vivamus sed congue dolor. Morbi lacinia augue ac rutrum ullamcorper. Morbi vestibulum, orci vitae mattis efficitur, leo urna gravida elit, quis luctus est risus id dolor. Ut tempor, dolor ac tincidunt pellentesque, ipsum turpis venenatis ante, sit amet luctus odio nulla et ante. Quisque eu mauris nec massa egestas interdum. Vestibulum ut lacus nec nisl vehicula pulvinar. Maecenas efficitur magna vitae tellus elementum ullamcorper. Nunc turpis sapien, ultrices id aliquet sit amet, semper vitae massa. Nunc blandit ut tellus nec varius.</p>
+            <p>Praesent sed lorem eros. Ut sit amet urna nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ac interdum tortor, nec bibendum mi. Vestibulum maximus ultricies dolor rutrum cursus. Nulla condimentum turpis quis ullamcorper finibus. Nunc et ipsum euismod, gravida ante id, dapibus elit. Morbi sit amet dapibus eros. Maecenas et tortor eget mi volutpat mollis sed at nunc. Aenean finibus eros vel vehicula rutrum. Curabitur rutrum velit non aliquam varius. Phasellus ut vulputate est. Sed lectus sem, dignissim a vulputate quis, cursus quis ex. Donec cursus eros vel magna pulvinar, et pellentesque velit posuere. Donec sollicitudin eros nec turpis molestie posuere. Morbi commodo enim in faucibus feugiat.</p>
+        </div>
+
+        <div class="auxiliary-box" data-section="1">
             <div class="tabs">
                 <button class="tab active" data-tab="1">Type A</button>
                 <button class="tab" data-tab="2">Type B</button>
                 <button class="tab" data-tab="3">Type C</button>
                 <button class="tab" data-tab="4">Type D</button>
             </div>
-            
-            <!-- Section 1 auxiliary content -->
-            <div class="section-auxiliary" data-section="1">
-                <div class="tab-content" data-tab="1">
+            <div class="tab-contents-wrapper">
+                <div class="tab-content active" data-tab="1">
                     <h3>Section 1 - Type A</h3>
-                    <p>Auxiliary content A for section 1...</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
                 </div>
                 <div class="tab-content" data-tab="2">
                     <h3>Section 1 - Type B</h3>
-                    <p>Auxiliary content B for section 1...</p>
+                    <p>Curabitur suscipit dui sapien, ut mollis nulla posuere eget. Vivamus sodales venenatis nisl sed accumsan. Proin sed consectetur mi, id varius dui. Integer cursus augue sit amet porta luctus. Aenean auctor ipsum a sollicitudin scelerisque. Fusce vel enim dignissim, viverra elit suscipit, tristique nisi. Nam imperdiet, leo non tristique tempor, tellus erat rhoncus augue, eget blandit arcu quam in urna. Nulla facilisi. In sit amet nunc non massa malesuada tempus. Suspendisse id odio mollis, eleifend sapien in, sagittis arcu. Morbi consectetur turpis tortor, quis interdum nunc aliquam et. In suscipit est non lorem rutrum commodo. Morbi at aliquam enim. Nulla sollicitudin tempus sollicitudin. Sed sed urna augue. Ut lobortis molestie mi, et vestibulum lectus condimentum ut.</p>
+                    <p>Duis tellus felis, convallis id tincidunt in, commodo nec dolor. Mauris sed vestibulum ipsum. Quisque orci enim, faucibus nec venenatis efficitur, lacinia vel risus. Donec euismod nisi quis augue tincidunt accumsan. Pellentesque eu tellus eget dolor efficitur convallis. Curabitur consequat sollicitudin blandit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque ac metus id sem consequat bibendum a ut sapien. Sed sodales est sed cursus maximus. Aenean condimentum ligula sit amet nulla euismod, in fringilla libero tincidunt. Vestibulum facilisis viverra dignissim. Donec et purus id tortor aliquam elementum. Aliquam purus felis, dignissim nec augue a, molestie euismod dolor. Fusce varius nisl nunc, eget feugiat sem sodales sed. Praesent scelerisque hendrerit suscipit. Ut in vestibulum quam, sit amet accumsan lacus.</p>
                 </div>
                 <div class="tab-content" data-tab="3">
                     <h3>Section 1 - Type C</h3>
-                    <p>Auxiliary content C for section 1...</p>
+                    <p>Vivamus sed congue dolor. Morbi lacinia augue ac rutrum ullamcorper. Morbi vestibulum, orci vitae mattis efficitur, leo urna gravida elit, quis luctus est risus id dolor. Ut tempor, dolor ac tincidunt pellentesque, ipsum turpis venenatis ante, sit amet luctus odio nulla et ante. Quisque eu mauris nec massa egestas interdum. Vestibulum ut lacus nec nisl vehicula pulvinar. Maecenas efficitur magna vitae tellus elementum ullamcorper. Nunc turpis sapien, ultrices id aliquet sit amet, semper vitae massa. Nunc blandit ut tellus nec varius.</p>
                 </div>
                 <div class="tab-content" data-tab="4">
                     <h3>Section 1 - Type D</h3>
                     <p>Auxiliary content D for section 1...</p>
                 </div>
             </div>
+        </div>
 
-            <!-- Section 2 auxiliary content -->
-            <div class="section-auxiliary" data-section="2">
-                <div class="tab-content" data-tab="1">
+        <!-- Section 2 -->
+        <div class="content-block" data-section="2">
+            <h2>Section 2</h2>
+            <p>Main content for section 2...</p>
+            <p>Duis tellus felis, convallis id tincidunt in, commodo nec dolor. Mauris sed vestibulum ipsum. Quisque orci enim, faucibus nec venenatis efficitur, lacinia vel risus.</p>
+        </div>
+
+        <div class="auxiliary-box" data-section="2">
+            <div class="tabs">
+                <button class="tab active" data-tab="1">Type A</button>
+                <button class="tab" data-tab="2">Type B</button>
+                <button class="tab" data-tab="3">Type C</button>
+                <button class="tab" data-tab="4">Type D</button>
+            </div>
+            <div class="tab-contents-wrapper">
+                <div class="tab-content active" data-tab="1">
                     <h3>Section 2 - Type A</h3>
                     <p>Auxiliary content A for section 2...</p>
                 </div>
@@ -69,8 +90,146 @@
                     <p>Auxiliary content D for section 2...</p>
                 </div>
             </div>
-            <!-- Repeat for remaining 12 sections -->
-        </aside>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="content-block" data-section="3">
+            <h2>Section 3</h2>
+            <p>Main content for section 3...</p>
+            <p>Vivamus sed congue dolor. Morbi lacinia augue ac rutrum ullamcorper. Morbi vestibulum, orci vitae mattis efficitur, leo urna gravida elit.</p>
+        </div>
+
+        <div class="auxiliary-box" data-section="3">
+            <div class="tabs">
+                <button class="tab active" data-tab="1">Type A</button>
+                <button class="tab" data-tab="2">Type B</button>
+                <button class="tab" data-tab="3">Type C</button>
+                <button class="tab" data-tab="4">Type D</button>
+            </div>
+            <div class="tab-contents-wrapper">
+                <div class="tab-content active" data-tab="1">
+                    <h3>Section 3 - Type A</h3>
+                    <p>Auxiliary content A for section 3...</p>
+                </div>
+                <div class="tab-content" data-tab="2">
+                    <h3>Section 3 - Type B</h3>
+                    <p>Auxiliary content B for section 3...</p>
+                </div>
+                <div class="tab-content" data-tab="3">
+                    <h3>Section 3 - Type C</h3>
+                    <p>Auxiliary content C for section 3...</p>
+                </div>
+                <div class="tab-content" data-tab="4">
+                    <h3>Section 3 - Type D</h3>
+                    <p>Auxiliary content D for section 3...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Layout -->
+    <div class="mobile-sections">
+        <div class="mobile-section">
+            <div class="content-block">
+                <h2>Section 1</h2>
+                <p>Main content for section 1...</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed.</p>
+            </div>
+            <div class="auxiliary-box">
+                <div class="tabs">
+                    <button class="tab active" data-tab="1">Type A</button>
+                    <button class="tab" data-tab="2">Type B</button>
+                    <button class="tab" data-tab="3">Type C</button>
+                    <button class="tab" data-tab="4">Type D</button>
+                </div>
+                <div class="tab-contents-wrapper">
+                    <div class="tab-content active" data-tab="1">
+                        <h3>Section 1 - Type A</h3>
+                        <p>Auxiliary content A for section 1...</p>
+                    </div>
+                    <div class="tab-content" data-tab="2">
+                        <h3>Section 1 - Type B</h3>
+                        <p>Auxiliary content B for section 1...</p>
+                    </div>
+                    <div class="tab-content" data-tab="3">
+                        <h3>Section 1 - Type C</h3>
+                        <p>Auxiliary content C for section 1...</p>
+                    </div>
+                    <div class="tab-content" data-tab="4">
+                        <h3>Section 1 - Type D</h3>
+                        <p>Auxiliary content D for section 1...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-section">
+            <div class="content-block">
+                <h2>Section 2</h2>
+                <p>Main content for section 2...</p>
+                <p>Duis tellus felis, convallis id tincidunt in, commodo nec dolor. Mauris sed vestibulum ipsum. Quisque orci enim, faucibus nec venenatis efficitur, lacinia vel risus.</p>
+            </div>
+            <div class="auxiliary-box">
+                <div class="tabs">
+                    <button class="tab active" data-tab="1">Type A</button>
+                    <button class="tab" data-tab="2">Type B</button>
+                    <button class="tab" data-tab="3">Type C</button>
+                    <button class="tab" data-tab="4">Type D</button>
+                </div>
+                <div class="tab-contents-wrapper">
+                    <div class="tab-content active" data-tab="1">
+                        <h3>Section 2 - Type A</h3>
+                        <p>Auxiliary content A for section 2...</p>
+                    </div>
+                    <div class="tab-content" data-tab="2">
+                        <h3>Section 2 - Type B</h3>
+                        <p>Auxiliary content B for section 2...</p>
+                    </div>
+                    <div class="tab-content" data-tab="3">
+                        <h3>Section 2 - Type C</h3>
+                        <p>Auxiliary content C for section 2...</p>
+                    </div>
+                    <div class="tab-content" data-tab="4">
+                        <h3>Section 2 - Type D</h3>
+                        <p>Auxiliary content D for section 2...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-section">
+            <div class="content-block">
+                <h2>Section 3</h2>
+                <p>Main content for section 3...</p>
+                <p>Vivamus sed congue dolor. Morbi lacinia augue ac rutrum ullamcorper. Morbi vestibulum, orci vitae mattis efficitur, leo urna gravida elit.</p>
+            </div>
+            <div class="auxiliary-box">
+                <div class="tabs">
+                    <button class="tab active" data-tab="1">Type A</button>
+                    <button class="tab" data-tab="2">Type B</button>
+                    <button class="tab" data-tab="3">Type C</button>
+                    <button class="tab" data-tab="4">Type D</button>
+                </div>
+                <div class="tab-contents-wrapper">
+                    <div class="tab-content active" data-tab="1">
+                        <h3>Section 3 - Type A</h3>
+                        <p>Auxiliary content A for section 3...</p>
+                    </div>
+                    <div class="tab-content" data-tab="2">
+                        <h3>Section 3 - Type B</h3>
+                        <p>Auxiliary content B for section 3...</p>
+                    </div>
+                    <div class="tab-content" data-tab="3">
+                        <h3>Section 3 - Type C</h3>
+                        <p>Auxiliary content C for section 3...</p>
+                    </div>
+                    <div class="tab-content" data-tab="4">
+                        <h3>Section 3 - Type D</h3>
+                        <p>Auxiliary content D for section 3...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

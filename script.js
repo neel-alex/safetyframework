@@ -1,56 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Show first section's auxiliary content by default
-    showSection('1');
-    showTab('1');
-
-    // Add click listeners to all sections
-    document.querySelectorAll('.content-block').forEach(section => {
-        section.addEventListener('click', () => {
+    // Handle desktop section clicks
+    document.querySelectorAll('.desktop-main .content-block').forEach(section => {
+        section.addEventListener('click', (e) => {
             const sectionId = section.dataset.section;
-            showSection(sectionId);
+            
+            // Update active section styling
+            document.querySelectorAll('.desktop-main .content-block').forEach(s => {
+                s.classList.remove('active');
+            });
+            section.classList.add('active');
+            
+            // Show corresponding auxiliary content
+            document.querySelectorAll('.desktop-auxiliary .auxiliary-box').forEach(box => {
+                box.classList.remove('active');
+            });
+            document.querySelector(`.desktop-auxiliary .auxiliary-box[data-section="${sectionId}"]`).classList.add('active');
         });
     });
 
-    // Add click listeners to all tabs
+    // Handle tab clicks for both desktop and mobile
     document.querySelectorAll('.tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            const tabId = tab.dataset.tab;
-            showTab(tabId);
+        tab.addEventListener('click', (e) => {
+            const tabId = e.target.dataset.tab;
+            const auxiliaryBox = e.target.closest('.auxiliary-box');
+            
+            // Update active tab
+            auxiliaryBox.querySelectorAll('.tab').forEach(t => {
+                t.classList.remove('active');
+            });
+            e.target.classList.add('active');
+            
+            // Update active content
+            auxiliaryBox.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            auxiliaryBox.querySelector(`.tab-content[data-tab="${tabId}"]`).classList.add('active');
         });
     });
+
+    // Set initial active states
+    const firstSection = document.querySelector('.desktop-main .content-block');
+    if (firstSection) {
+        firstSection.classList.add('active');
+    }
+
+    const firstAuxBox = document.querySelector('.desktop-auxiliary .auxiliary-box');
+    if (firstAuxBox) {
+        firstAuxBox.classList.add('active');
+    }
 });
 
-function showSection(sectionId) {
-    // Update active section styling
-    document.querySelectorAll('.content-block').forEach(section => {
-        section.classList.remove('active');
-    });
-    document.querySelector(`.content-block[data-section="${sectionId}"]`).classList.add('active');
-
-    // Show corresponding auxiliary content
-    document.querySelectorAll('.section-auxiliary').forEach(content => {
-        content.classList.remove('active');
-    });
-    document.querySelector(`.section-auxiliary[data-section="${sectionId}"]`).classList.add('active');
+// Optional: Helper function to programmatically switch sections
+function switchSection(sectionId) {
+    const section = document.querySelector(`.desktop-main .content-block[data-section="${sectionId}"]`);
+    if (section) {
+        section.click();
+    }
 }
 
-function showTab(tabId) {
-    // Update active tab styling
-    document.querySelectorAll('.tab').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
-
-    // Show corresponding tab content for current section
-    document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-    });
-    const activeSection = document.querySelector('.section-auxiliary.active');
-    activeSection.querySelector(`.tab-content[data-tab="${tabId}"]`).classList.add('active');
-}
-
-// Optional: Add scroll into view functionality
-function scrollSectionIntoView(sectionId) {
-    const section = document.querySelector(`.content-block[data-section="${sectionId}"]`);
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// Optional: Helper function to programmatically switch tabs
+function switchTab(tabId, auxiliaryBox) {
+    const tab = auxiliaryBox.querySelector(`.tab[data-tab="${tabId}"]`);
+    if (tab) {
+        tab.click();
+    }
 }
