@@ -294,7 +294,37 @@
                         </div>
                     </div>
 
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>State that assessments will be done before deployment.
+                           <ol>
+                               <li>Optionally, set a threshold below which models are likely to be harmless, and require no assessment.
+                                   <ol>
+                                       <li>This should adapt to the model use-case. If the threshold is based on compute, general-purpose systems could be considered safe below the threshold, but narrow biological systems could still yield dangerous results below the the threshold.</li>
+                                   </ol>
+                               </li>
+                           </ol>
+                       </li>
+                       <li>Determine how often assessment will be run during training.
+                           <ol>
+                               <li>Typically, organizations assess every time the effective compute put into a system increases by a multiplicative factor.</li>
+                               <li>For example: Every time the amount of compute invested in training the system grows by 4x over the previous time the system was assessed, a new assessment must be done before training can continue.</li>
+                               <li>Specific details depend on an organization's needs. Some questions to consider:
+                                   <ol>
+                                       <li>How costly are assessments to run?</li>
+                                       <li>Will only a subset of assessments be run mid-training?</li>
+                                       <li>At a given compute multiplier, how often would assessments be run?</li>
+                                   </ol>
+                               </li>
+                           </ol>
+                       </li>
+                       <li>Determine if assessments will be done <em>before</em> training, and if so, how.</li>
+                       <li>Set a schedule for post-deployment assessment as necessary. Examples:
+                           <ol>
+                               <li>Regularly scheduled testing of defenses against <strong>Model Theft</strong>.</li>
+                               <li>Evaluating improvements due to ongoing fine-tuning or improved scaffolding.</li>
+                           </ol>
+                       </li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -326,18 +356,37 @@
 
             <div class="subsection-wrapper" data-subsection="1.4">
                 <div class="content-block">
-                    <h3>Subsection 1.4</h3>
+                    <h3>Step 4: Third-Party Risk-Assessments</h3>
 
                     <div class="info-box">
                         <div class="info-box-header">
-                            Key Points for 1.1
+                            Frontier AI Safety Commitments, Commitment 1
                         </div>
                         <div class="info-box-content">
-                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                            <p>I. [...] They should also consider results from internal and external evaluations as appropriate, such as by independent third-party evaluators, their home governments, and other bodies their governments deem appropriate.</p>
                         </div>
                     </div>
 
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>Describe which types of third party organizations will be involved in risk assessment. For example:
+                           <ol>
+                               <li>Computer security red-teaming orgs.</li>
+                               <li>Third party eval-providing organizations, e.g. METR, Apollo.</li>
+                               <li>Government institutes, e.g. US AISI, UK AISI, EU AI Office.</li>
+                           </ol>
+                       </li>
+                       <li>Describe what role the third party organizations will play, and how additional third party organizations can get involved. Some details to consider specifying:
+                           <ol>
+                               <li>What risk vectors will they assess?
+                                   <ol>
+                                       <li>Certain assessments may be better executed in-house, due to an organization's particular needs.</li>
+                                   </ol>
+                               </li>
+                               <li>When will they participate in testing?</li>
+                               <li>How will their results be incorporated into mitigation strategies?</li>
+                           </ol>
+                       </li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -370,22 +419,60 @@
 
                 <!-- Section 2 -->
         <div class="section-wrapper" data-section="2">
-            <h2>Section 2</h2>
+            <h2>Commitment 2 (Risk Thresholds)</h2>
             
             <div class="subsection-wrapper" data-subsection="2.1">
                 <div class="content-block">
-                    <h3>Subsection 2.1</h3>
+                    <h3>Step 1: Risk Thresholds</h3>
 
                     <div class="info-box">
                         <div class="info-box-header">
-                            Key Points for 1.1
+                            Frontier AI Safety Commitments, Commitment 2
                         </div>
                         <div class="info-box-content">
-                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                            <p>II. Set out thresholds at which severe risks posed by a model or system, unless adequately mitigated, would be deemed intolerable. Assess whether these thresholds have been breached, including monitoring how close a model or system is to such a breach. [...] They should also be accompanied by an explanation of how thresholds were decided upon, and by specific examples of situations where the models or systems would pose intolerable risk.</p>
                         </div>
                     </div>
 
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>Gather relevant stakeholders or information needed to set thresholds. For example:
+                           <ol>
+                               <li>The organization's leadership.</li>
+                               <li>Representative of the home government.</li>
+                               <li>Information about national laws or international agreements.</li>
+                               <li>(Optional) information about other parties' interests, e.g. survey results of the general public's preferences.</li>
+                           </ol>
+                       </li>
+                       <li>Determine <em>how</em> thresholds will be set. Capability thresholds are the most common form of threshold.
+                           <ol>
+                               <li>However, other industries often explicitly calculate an expected harm (e.g. in dollars of damages or lives lost) and adjust development and deployment according to <a href="https://arxiv.org/abs/2406.14713">corresponding quantitative thresholds</a>.</li>
+                           </ol>
+                       </li>
+                       <li>For each identified risk category from Commitment 1, determine a degree of risk that would be intolerable. These are the risk thresholds. For example:
+                           <ol>
+                               <li>For <strong>Model Theft</strong>, the risk might be intolerable if an adversary could exfiltrate a given model's weights with an attack that costs <10% of the model's training cost.
+                                   <ol>
+                                       <li>We recommend organizations consult the <a href="https://www.rand.org/pubs/research_reports/RRA2849-1.html">RAND report on Securing AI Model Weights</a>, which describes a number of concrete thresholds of security to consider when deploying frontier AI systems.</li>
+                                   </ol>
+                               </li>
+                               <li>For <strong>Cyber Offense</strong>, the risk might be intolerable if the model could identify a zero-day and take control of a given arbitrary EC2 instance.</li>
+                               <li>For <strong>Bioweapons</strong>, the risk might be intolerable if the model would enable a PhD-level expert to synthesize a pandemic-potential pathogen with less than $100,000.</li>
+                               <li>These risk-thresholds might need to be set based on the intended deployment modality. The risks associated with serving an API of a base model might be different than the risks associated with offering fine-tuning.</li>
+                           </ol>
+                       </li>
+                       <li>For each threshold set in the previous step, briefly justify why it was chosen.
+                           <ol>
+                               <li>Perhaps as simple as cleaning up internal discussions.</li>
+                           </ol>
+                       </li>
+                       <li>For each justification above, describe in moderate detail the corresponding scenario where, if the threshold is exceeded and the risk isn't mitigated, intolerable harms can occur.</li>
+                       <li>Optionally, set additional thresholds as necessary to ensure that AI systems are safely developed and deployed. These may not need to be fully fleshed out as the intolerable risk thresholds above. For example:
+                           <ol>
+                               <li>If some mitigations are expensive to apply, at which threshold will they start coming into practice?</li>
+                               <li>Since safety mitigations such as refusals can be nearly-trivially removed by <a href="https://arxiv.org/abs/2311.00117">adversarial fine-tuning</a>, thresholds based on the model's performance before safety mitigations may be useful to address threat models such as <strong>Model Theft</strong>.</li>
+                           </ol>
+                       </li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -417,18 +504,27 @@
 
             <div class="subsection-wrapper" data-subsection="2.2">
                 <div class="content-block">
-                    <h3>Subsection 2.2</h3>
+                    <h3>Step 2: Input from Trusted Actors</h3>
 
                     <div class="info-box">
                         <div class="info-box-header">
-                            Key Points for 1.1
+                            Frontier AI Safety Commitments, Commitment 2
                         </div>
                         <div class="info-box-content">
-                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                            <p>II. [...] These thresholds should be defined with input from trusted actors, including organisations’ respective home governments as appropriate. They should align with relevant international agreements to which their home governments are party.</p>
                         </div>
                     </div>
 
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>Affirm that home governments will be involved in setting thresholds of intolerable risk.</li>
+                       <li>List any other parties that will be involved in threshold setting.
+                           <ol>
+                               <li>Optionally, describe how each actor contributed, e.g. by making suggestions for thresholds, providing research on what types of thresholds to choose, etc.</li>
+                               <li>Alternately, provide information about how other parties can submit their statements on thresholds.</li>
+                           </ol>
+                       </li>
+                       <li>Confirm that set thresholds align with any relevant international agreements. Once confirmed, affirm this in the safety framework.</li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -461,19 +557,48 @@
 
         <!-- Section 3 (no subsections) -->
         <div class="section-wrapper" data-section="3">
-            <h2>Section 3</h2>
+            <h2>Commitment 3 (Mitigations)</h2>
             <div class="info-box">
                 <div class="info-box-header">
-                    Key Points for 1.1
+                    Frontier AI Safety Commitments, Commitment 3
                 </div>
                 <div class="info-box-content">
-                    <p>Specific details about this subsection and its importance in the overall context.</p>
+                    <p>III. Articulate how risk mitigations will be identified and implemented to keep risks within defined thresholds, including safety and security-related risk mitigations such as modifying system behaviours and implementing robust security controls for unreleased model weights.</p>
                 </div>
             </div>
-
             <div class="content-and-aux-wrapper">
                 <div class="content-block">
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>For security-related mitigations, discuss with your security team how they intend to prevent unauthorized access to model weights and other IP, and how they identified that strategy.
+                           <ol>
+                               <li>Document the strategy by which security mitigations were identified (not necessarily specific parts of your organization's security).</li>
+                           </ol>
+                       </li>
+                       <li>For safety-related mitigations (typically called "deployment mitigations"), discuss with your engineering team how they intend to ensure that the model's behavior does not cause harm along the previously identified risk vectors, and how they chose that set of mitigations.
+                           <ol>
+                               <li>Document the strategy by which safety mitigations were identified.</li>
+                               <li>Suggested questions to consider providing detail on:
+                                   <ol>
+                                       <li><em>What information sources are used to build the set of possible mitigations?</em></li>
+                                       <li><em>How is the decision made to use or reject a given mitigation?</em></li>
+                                       <li><em>Why</em> are these mitigations expected to reduce the risk from undesirable behaviors from the model?</li>
+                                   </ol>
+                               </li>
+                           </ol>
+                       </li>
+                       <li>For both security and safety mitigations, describe how they will be implemented.
+                           <ol>
+                               <li>Who will implement them?</li>
+                               <li>How will they be tested to ensure that the mitigation is actually having an effect?</li>
+                           </ol>
+                       </li>
+                       <li>Describe how it will be verified that mitigations are in fact keeping risk below the desired thresholds.
+                           <ol>
+                               <li>This could be via re-running the assessments defined above. Different thresholds may be needed pre-mitigation vs. post-mitigation.</li>
+                           </ol>
+                       </li>
+                    </ol>
+                    <p>Ideally, a final product would be able to map, for every risk vector identified, which mitigations are deployed in order to keep that risk vector in check.</p>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -506,21 +631,30 @@
 
         <!-- Section 4 -->
         <div class="section-wrapper" data-section="4">
-            <h2>Section 4</h2>
+            <h2>Commitment 4 (Mitigation Strategy)</h2>
             
             <div class="subsection-wrapper" data-subsection="4.1">
                 <div class="content-block">
-                    <h3>Subsection 4.1</h3>
+                    <h3>Step 1: Responding to Threshold Breach</h3>
                     <div class="info-box">
                         <div class="info-box-header">
-                            Key Points for 1.1
+                            Frontier AI Safety Commitments, Commitment 4
                         </div>
                         <div class="info-box-content">
-                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                            <p>IV. Set out explicit processes they intend to follow if their model or system poses risks that meet or exceed the pre-defined thresholds...</p>
                         </div>
                     </div>
 
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>For each relevant threshold, describe corresponding processes that will be taken if an AI model exceeds that threshold at a given point. Processes should be appropriate to the risk type and stage of training or deployment when the risk is discovered. Some examples:
+                           <ol>
+                               <li>If a model exceeds a certain capability threshold on a risk assessment in training, activate new security measures.</li>
+                               <li>If trained safeguards cannot defend against adversarial fine-tuning and sufficiently dangerous capabilities exist, pivot from open-weights to closed-weights deployment.</li>
+                               <li>If mitigations fail to reduce a model's performance on a risk assessment to below given thresholds, reorient research teams into identifying or developing more effective mitigations.</li>
+                               <li>If new elicitation techniques show that an already-deployed model has dangerous capabilities, shift existing customers temporarily to a safer model until mitigations can be applied.</li>
+                           </ol>
+                       </li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -552,17 +686,31 @@
 
             <div class="subsection-wrapper" data-subsection="4.2">
                 <div class="content-block">
-                    <h3>Subsection 4.2</h3>
+                    <h3>Step 2: Limits for Deployment and Development</h3>
                     <div class="info-box">
                         <div class="info-box-header">
-                            Key Points for 1.1
+                            Frontier AI Safety Commitments, Commitment 4
                         </div>
                         <div class="info-box-content">
-                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                            <p>IV. [...] This includes processes to further develop and deploy their systems and models only if they assess that residual risks would stay below the thresholds. In the extreme, organisations commit not to develop or deploy a model or system at all, if mitigations cannot be applied to keep risks below the thresholds.</p>
                         </div>
                     </div>
-
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>Intolerable-risk thresholds from Commitment 2 will likely include scenarios in which a model cannot be deployed. If necessary, describe additional thresholds where a model cannot be safely developed. For example:
+                           <ol>
+                               <li>The model has human-expert-level cyber offensive capabilities, and security levels are inadequate to prevent top hacking organizations from stealing the model weights.</li>
+                               <li>The model demonstrates high levels of autonomy, including skills such as goal-directedness and self-replication, and tends to try to self-improve across a variety of tasks, but the model is not thoroughly sandboxed and air-gapped.</li>
+                           </ol>
+                       </li>
+                       <li>Describe what processes will be set in place to permit halting model development or deployment. Some questions to consider:
+                           <ol>
+                               <li>What stakeholders need to be consulted before aborting a planned deployment? Who makes the final decision?</li>
+                               <li>To prepare for potential de-deployments, can the organization ensure readiness to switch all customers to a known safer model?</li>
+                               <li>Will pauses on development happen automatically if dangerous capability evaluations trigger, or will they have a human-in-the-loop?</li>
+                               <li>Once such processes have been triggered, what evidence will be required to continue with development or deployment?</li>
+                           </ol>
+                       </li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -594,21 +742,41 @@
         </div>
         <!-- Section 5 (no subsections) -->
         <div class="section-wrapper" data-section="5">
-            <h2>Section 5</h2>
+            <h2>Commitment 5 (Continual Improvement)</h2>
 
             <div class="info-box">
                 <div class="info-box-header">
-                    Key Points for 1.1
+                    Frontier AI Safety Commitments, Commitment 5
                 </div>
                 <div class="info-box-content">
-                    <p>Specific details about this subsection and its importance in the overall context.</p>
+                    <p>V. Continually invest in advancing their ability to implement commitments i-iv, including risk assessment and identification, thresholds definition, and mitigation effectiveness. This should include processes to assess and monitor the adequacy of mitigations, and identify additional mitigations as needed to ensure risks remain below the pre-defined thresholds. They will contribute to and take into account emerging best practice, international standards, and science on AI risk identification, assessment, and mitigation.</p>
                 </div>
             </div>
 
             <div class="content-and-aux-wrapper">
 
                 <div class="content-block">
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>Describe how the safety framework will be updated. If possible, describe how each of the above sections will be updated, i.e.:
+                           <ol>
+                               <li>How will new risk categories be added to the framework?</li>
+                               <li>How will new risk assessments be designed and used?</li>
+                               <li>How will risk thresholds be updated over time?</li>
+                               <li>How will internal procedures be changed as AI progress advances?</li>
+                           </ol>
+                       </li>
+                       <li>Ensure that the process of updating mitigations is thoroughly described, as the commitments pay a particular focus to mitigations.
+                           <ol>
+                               <li>How and when are mitigations tested to ensure that they continue to be effective on more advanced models?</li>
+                               <li>How are new mitigations identified and evaluated?
+                                   <ol>
+                                       <li>Both these sections will likely draw heavily on already-established processes described for Commitment 3.</li>
+                                   </ol>
+                               </li>
+                           </ol>
+                       </li>
+                       <li>Affirm that updates will take into account the various sources listed in the commitments.</li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -641,14 +809,14 @@
 
         <!-- Section 6 (no subsections) -->
         <div class="section-wrapper" data-section="6">
-            <h2>Section 6</h2>
+            <h2>Commitment 6 (Governance)</h2>
 
             <div class="info-box">
                 <div class="info-box-header">
-                    Key Points for 1.1
+                    Frontier AI Safety Commitments, Commitment 6
                 </div>
                 <div class="info-box-content">
-                    <p>Specific details about this subsection and its importance in the overall context.</p>
+                    <p>VI. Adhere to the commitments outlined in I-V, including by developing and continuously reviewing internal accountability and governance frameworks and assigning roles, responsibilities and sufficient resources to do so.</p>
                 </div>
             </div>
 
@@ -656,7 +824,19 @@
             <div class="content-and-aux-wrapper">
 
                 <div class="content-block">
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>Identify key actors in the organization that are required for the safety framework to be successfully implemented. This involves, at a minimum:
+                           <ol>
+                               <li>Actors involved in risk assessment.</li>
+                               <li>Actors involved in setting risk thresholds.</li>
+                               <li>Actors involved in identifying and implementing risk mitigations.</li>
+                               <li>Actors involved in making decisions about whether models are safe to develop or deploy.</li>
+                               <li>Actors involved in updating and maintaining the safety framework.</li>
+                               <li>Actors that ensure that the organization is adhering to the safety framework.</li>
+                           </ol>
+                       </li>
+                       <li>Describe each of these groups, and their responsibilities with regards to the commitments made within the safety framework.</li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -689,22 +869,32 @@
 
         <!-- Section 7 -->
         <div class="section-wrapper" data-section="7">
-            <h2>Section 7</h2>
+            <h2>Commitment 7 (Transparency)</h2>
             
             <div class="subsection-wrapper" data-subsection="7.1">
                 <div class="content-block">
-                    <h3>Subsection 7.1</h3>
+                    <h3>Step 1: Prepare Framework for Publication</h3>
 
                     <div class="info-box">
                         <div class="info-box-header">
-                            Key Points for 1.1
+                            Frontier AI Safety Commitments, Commitment 7
                         </div>
                         <div class="info-box-content">
-                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                            <p>VII. Provide public transparency on the implementation of the above (I-VI), except insofar as doing so would increase risk or divulge sensitive commercial information to a degree disproportionate to the societal benefit...</p>
                         </div>
                     </div>
 
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>Step through the framework section-by-section.</li>
+                       <li>In each section, identify any text that would leak commercially-valuable information without substantial benefit.
+                           <ol>
+                               <li>For example: details on specific security assessments and mitigations used, which could enable adversaries to better circumvent security systems.</li>
+                               <li>As a counter-example of information that is commercially-valuable, but still potentially worth sharing: Information on which safety-mitigations are used could potentially be intellectual property, but sharing it could still yield substantial social benefit, as it would enable outside researchers to study the methods more and identify flaws and room for improvement.</li>
+                           </ol>
+                       </li>
+                       <li>Produce a version of the framework without the identified information.</li>
+                       <li>Publish the sanitized framework.</li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -736,18 +926,27 @@
 
             <div class="subsection-wrapper" data-subsection="7.2">
                 <div class="content-block">
-                    <h3>Subsection 7.2</h3>
+                    <h3>Step 2: Enable Trusted Access</h3>
 
                     <div class="info-box">
                         <div class="info-box-header">
-                            Key Points for 1.1
+                            Frontier AI Safety Commitments, Commitment 7
                         </div>
                         <div class="info-box-content">
-                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                            <p>VII. [...] They should still share more detailed information which cannot be shared publicly with trusted actors, including their respective home governments or appointed body, as appropriate.</p>
                         </div>
                     </div>
 
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>Similarly to before, step through the framework and identify any text that cannot be shared even with highly trusted actors.
+                           <ol>
+                               <li>For example: specific training details that have no bearing on the safety properties of a model.</li>
+                           </ol>
+                       </li>
+                       <li>Produce a version of the framework without the identified information.</li>
+                       <li>Identify which actors are trusted to view the more complete safety framework.</li>
+                       <li>Affirm that trusted actors can gain access to this new version of the safety framework.</li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
@@ -780,19 +979,22 @@
 
         <!-- Section 8 (no subsections) -->
         <div class="section-wrapper" data-section="8">
-            <h2>Section 8</h2>
+            <h2>Commitment 8 (Feedback Opportunities)</h2>
             <div class="info-box">
                 <div class="info-box-header">
-                    Key Points for 1.1
+                    Frontier AI Safety Commitments, Commitment 8
                 </div>
                 <div class="info-box-content">
-                    <p>Specific details about this subsection and its importance in the overall context.</p>
+                    <p>VIII. Explain how, if at all, external actors, such as governments, civil society, academics, and the public are involved in the process of assessing the risks of their AI models and systems, the adequacy of their safety framework (as described under I-VI), and their adherence to that framework.</p>
                 </div>
             </div>
 
             <div class="content-and-aux-wrapper">
                 <div class="content-block">
-                    <p>$FILLER_TEXT</p>
+                    <ol>
+                       <li>Create a way for external actors to give feedback and describe it in the public-facing safety framework.</li>
+                       <li>Assign personnel to read the feedback and send summaries of its key contents for relevant people in the organization.</li>
+                    </ol>
                 </div>
                 <div class="auxiliary-box">
                     <div class="tabs">
