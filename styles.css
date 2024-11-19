@@ -1,3 +1,4 @@
+/* Basic reset and setup */
 * {
     margin: 0;
     padding: 0;
@@ -30,97 +31,139 @@ body {
     margin: 0.25rem 0;
 }
 
-/* Desktop Layout */
-@media (min-width: 769px) {
-    .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 7fr 3fr;
-        gap: 0 2rem;
-        padding: 2rem;
-    }
-
-    /* Match content blocks with their auxiliary boxes using data-section attribute */
-    .content-block[data-section="1"],
-    .auxiliary-box[data-section="1"] {
-        grid-row: 1;
-    }
-
-    .content-block[data-section="1"] { grid-column: 1; }
-    .auxiliary-box[data-section="1"] { grid-column: 2; }
-
-    .content-block[data-section="2"],
-    .auxiliary-box[data-section="2"] {
-        grid-row: 2;
-    }
-
-    .content-block[data-section="2"] { grid-column: 1; }
-    .auxiliary-box[data-section="2"] { grid-column: 2; }
-
-    .content-block[data-section="3"],
-    .auxiliary-box[data-section="3"] {
-        grid-row: 3;
-    }
-
-    .content-block[data-section="3"] { grid-column: 1; }
-    .auxiliary-box[data-section="3"] { grid-column: 2; }
-
-    /* MODIFIED: Override the common styles for desktop view */
-    .container .content-block {
-        background: white;
-        padding: 0;
-        border-radius: 0;
-        margin-bottom: 2rem;
-    }
-
-    /* MODIFIED: New auxiliary box styling */
-    .auxiliary-box {
-        margin-bottom: 2rem;
-        background: none;
-        border: none;
-    }
-
-    /* ADDED: New inner container for the visual box */
-    .auxiliary-box .tabs,
-    .auxiliary-box .tab-contents-wrapper {
-        background: white;
-        border: 1px solid #eee;
-    }
-
-    .auxiliary-box .tabs {
-        border-bottom: none;
-        border-radius: 4px 4px 0 0;
-    }
-
-    .auxiliary-box .tab-contents-wrapper {
-        border-radius: 0 0 4px 4px;
-        height: fit-content;
-    }
-
-    /* Hide mobile layout */
-    .mobile-sections {
-        display: none;
-    }
+.intro-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 2rem;
 }
 
-/* Mobile Layout */
-@media (max-width: 768px) {
-    .container {
-        display: none;
-    }
+.intro-text {
+    text-align: left;
+}
 
-    .mobile-sections {
-        padding: 1rem;
-    }
+.intro-text p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
 
-    .mobile-section {
-        margin-bottom: 2rem;
-    }
+.intro-text p:last-child {
+    margin-bottom: 0;
+}
 
-    .mobile-section .content-block {
-        margin-bottom: 1rem;
-    }
+/* Commitment Table Styles */
+.commitment-table-wrapper {
+    margin: 2rem 0;
+    overflow-x: auto;
+    width: 90%;  /* Makes table narrower than text */
+    max-width: 900px; /* Match intro-container's max-width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.commitment-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.commitment-table th {
+    background-color: #e5e5e5;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.commitment-table td {
+    border: 1px solid #eee;
+    padding: 1rem;
+    vertical-align: top;
+}
+
+.commitment-table ol {
+    margin-left: 1.5rem;
+    margin-bottom: 0;
+}
+
+.commitment-table li {
+    margin-bottom: 0.5rem;
+}
+
+.commitment-table li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Info Box Styles */
+.info-box {
+    margin: 1rem 0 2rem 0;
+    border: 1px solid #E8E3D5;
+    border-radius: 4px;
+    overflow: hidden;  /* Ensures the border radius applies to children */
+}
+
+.info-box-header {
+    background-color: #E8E3D5;
+    padding: 0.75rem 1.5rem;
+    color: #6B6657;
+    font-weight: 500;
+}
+
+.info-box-content {
+    background-color: #FAF9F6;
+    padding: 1.5rem;
+    color: #5A5648;
+}
+
+.info-box-content p {
+    color: inherit;
+    margin: 0;
+}
+
+/* Adjust spacing when info box follows headers */
+h2 + .info-box,
+h3 + .info-box {
+    margin-top: 1.5rem;
+}
+
+/* Layout Structure */
+.layout-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Section and Subsection Layout */
+.section-wrapper {
+    margin-bottom: 3rem;
+}
+
+/* Content and Auxiliary wrapper */
+.content-and-aux-wrapper {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    gap: 0 2rem;
+}
+
+.section-wrapper > h2 {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+.section-wrapper + .section-wrapper {
+    padding-top: 1.5rem;
+}
+
+.subsection-wrapper {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    gap: 0 2rem;
+    margin-bottom: 2rem;
+}
+
+.subsection-wrapper:last-child {
+    margin-bottom: 0;
 }
 
 /* Common Styles */
@@ -130,7 +173,74 @@ body {
     padding: 1.5rem;
 }
 
-/* MODIFIED: Removed default auxiliary-box border and background */
+.section-wrapper > .content-block {
+    margin-bottom: 0;
+}
+
+/* Updated list styling */
+.content-block {
+   padding-left: 2rem;
+}
+
+.content-block ol {
+   counter-reset: section;
+   list-style-type: none;
+   padding-left: 0;
+}
+
+.content-block > ol > li {
+   counter-increment: section;
+   margin-bottom: 1rem;
+   position: relative;
+   padding-left: 2rem;
+}
+
+.content-block > ol > li:before {
+   content: counter(section) ".";
+   position: absolute;
+   left: 0;
+   width: 2rem;
+}
+
+.content-block ol ol {
+   counter-reset: subsection;
+   margin-top: 0.5rem;
+}
+
+.content-block ol ol > li {
+   counter-increment: subsection;
+   position: relative;
+   padding-left: 2rem;
+}
+
+.content-block ol ol > li:before {
+   content: counter(subsection, lower-alpha) ".";
+   position: absolute;
+   left: 0;
+   width: 2rem;
+}
+
+.content-block ol ol ol {
+   counter-reset: subsubsection;
+}
+
+.content-block ol ol ol > li {
+   counter-increment: subsubsection;
+   position: relative;
+   padding-left: 2rem;
+}
+
+.content-block ol ol ol > li:before {
+   content: counter(subsubsection, lower-roman) ".";
+   position: absolute;
+   left: 0;
+   width: 2rem;
+}
+
+p, .content-block li, .commitment-table td, .commitment-table li {
+   color: #333;  /* A medium grey between black and the previous light grey */
+}
+
 .auxiliary-box {
     border-radius: 4px;
 }
@@ -157,12 +267,92 @@ body {
     color: inherit;
 }
 
-.tab:hover {
-    background: #f0f0f0;
+/* Type A (Blue) */
+.tab[data-type="typeA"] {
+    background-color: #D4E0FF;
 }
 
-.tab.active {
-    background: white;
+.tab[data-type="typeA"]:hover {
+    background-color: #B3C6FF;
+}
+
+.tab[data-type="typeA"].active {
+    background-color: #D4E0FF;
+}
+
+.tab[data-type="typeA"].active::after {
+    background-color: #6B8EFF;
+    height: 3px;  /* Changed from 2px */
+}
+
+.tab-content[data-type="typeA"] {
+    background-color: #F7FAFF;  /* Keeping the light background for content */
+}
+
+/* Type B (Green) */
+.tab[data-type="typeB"] {
+    background-color: #D4EDE7;
+}
+
+.tab[data-type="typeB"]:hover {
+    background-color: #B3DCD1;
+}
+
+.tab[data-type="typeB"].active {
+    background-color: #D4EDE7;
+}
+
+.tab[data-type="typeB"].active::after {
+    background-color: #66B5A1;
+    height: 3px;
+}
+
+.tab-content[data-type="typeB"] {
+    background-color: #F7FCFA;
+}
+
+/* Type C (Purple) */
+.tab[data-type="typeC"] {
+    background-color: #E5D4FF;
+}
+
+.tab[data-type="typeC"]:hover {
+    background-color: #D1B3FF;
+}
+
+.tab[data-type="typeC"].active {
+    background-color: #E5D4FF;
+}
+
+.tab[data-type="typeC"].active::after {
+    background-color: #9C66FF;
+    height: 3px;
+}
+
+.tab-content[data-type="typeC"] {
+    background-color: #FAF7FF;
+}
+
+/* Type D (Orange) */
+.tab[data-type="typeD"] {
+    background-color: #FFE1D4;
+}
+
+.tab[data-type="typeD"]:hover {
+    background-color: #FFC7B3;
+}
+
+.tab[data-type="typeD"].active {
+    background-color: #FFE1D4;
+}
+
+.tab[data-type="typeD"].active::after {
+    background-color: #FF9166;
+    height: 3px;
+}
+
+.tab-content[data-type="typeD"] {
+    background-color: #FFF9F7;
 }
 
 /* Scale-based indicator */
@@ -172,8 +362,7 @@ body {
     bottom: -1px;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: #000;
+    height: 3px;  /* Changed default height to match */
     transform: scaleX(0);
     transition: transform 0.2s ease;
 }
@@ -185,7 +374,6 @@ body {
 /* Tab content styles */
 .tab-contents-wrapper {
     position: relative;
-    min-height: 200px;
 }
 
 .tab-content {
@@ -196,8 +384,8 @@ body {
     opacity: 0;
     visibility: hidden;
     padding: 1.5rem;
-    background: white;
     transition: opacity 0.2s ease;
+    height: auto;
 }
 
 .tab-content.active {
@@ -218,7 +406,6 @@ h3 {
 }
 
 p {
-    color: #666;
     margin-bottom: 1rem;
 }
 
@@ -226,9 +413,74 @@ p:last-child {
     margin-bottom: 0;
 }
 
+/* Desktop Layout */
+@media (min-width: 769px) {
+    .content-block {
+        background: white;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .auxiliary-box {
+        margin-bottom: 0;
+        background: none;
+        border: none;
+    }
+
+    .auxiliary-box .tabs,
+    .auxiliary-box .tab-contents-wrapper {
+        border: 1px solid #eee;
+    }
+
+    .auxiliary-box .tabs {
+        border-bottom: none;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .auxiliary-box .tab-contents-wrapper {
+        border-radius: 0 0 4px 4px;
+        height: fit-content;
+    }
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+    .intro-container {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .layout-wrapper {
+        padding: 1rem;
+    }
+
+    .section-wrapper {
+        margin-bottom: 2rem;
+    }
+
+    .content-and-aux-wrapper {
+        display: block;
+    }
+
+    .subsection-wrapper {
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    .content-block {
+        margin-bottom: 1rem;
+    }
+
+    .commitment-table th,
+    .commitment-table td {
+        padding: 0.75rem;
+    }
+}
+
 /* Medium-size screen adjustments */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .container {
+    .content-and-aux-wrapper,
+    .subsection-wrapper {
         grid-template-columns: 6fr 4fr;
     }
 }

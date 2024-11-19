@@ -3,229 +3,821 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
+    <title>AI Safety Framework Guide</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <header class="page-header">
-        <h1>Your Page Title</h1>
+        <h1>A Guide to Writing Frontier AI Safety Frameworks</h1>
         <div class="metadata">
-            <p>Author: Your Name</p>
-            <p>Contact: your.email@example.com</p>
+            <p>Author: Neel Alex</p>
+            <p>Contact: alexneel@gmail.com</p>
             <p>Last Updated: November 19, 2024</p>
         </div>
     </header>
 
-    <!-- Desktop Layout (flattened) -->
-    <div class="container">
-        <!-- Section 1 -->
-        <div class="content-block" data-section="1">
-            <h2>Section 1</h2>
-            <p>Main content for section 1...</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-            <p>Curabitur suscipit dui sapien, ut mollis nulla posuere eget. Vivamus sodales venenatis nisl sed accumsan. Proin sed consectetur mi, id varius dui. Integer cursus augue sit amet porta luctus. Aenean auctor ipsum a sollicitudin scelerisque. Fusce vel enim dignissim, viverra elit suscipit, tristique nisi. Nam imperdiet, leo non tristique tempor, tellus erat rhoncus augue, eget blandit arcu quam in urna. Nulla facilisi. In sit amet nunc non massa malesuada tempus. Suspendisse id odio mollis, eleifend sapien in, sagittis arcu. Morbi consectetur turpis tortor, quis interdum nunc aliquam et. In suscipit est non lorem rutrum commodo. Morbi at aliquam enim. Nulla sollicitudin tempus sollicitudin. Sed sed urna augue. Ut lobortis molestie mi, et vestibulum lectus condimentum ut.</p>
-            <p>Duis tellus felis, convallis id tincidunt in, commodo nec dolor. Mauris sed vestibulum ipsum. Quisque orci enim, faucibus nec venenatis efficitur, lacinia vel risus. Donec euismod nisi quis augue tincidunt accumsan. Pellentesque eu tellus eget dolor efficitur convallis. Curabitur consequat sollicitudin blandit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque ac metus id sem consequat bibendum a ut sapien. Sed sodales est sed cursus maximus. Aenean condimentum ligula sit amet nulla euismod, in fringilla libero tincidunt. Vestibulum facilisis viverra dignissim. Donec et purus id tortor aliquam elementum. Aliquam purus felis, dignissim nec augue a, molestie euismod dolor. Fusce varius nisl nunc, eget feugiat sem sodales sed. Praesent scelerisque hendrerit suscipit. Ut in vestibulum quam, sit amet accumsan lacus.</p>
-            <p>Vivamus sed congue dolor. Morbi lacinia augue ac rutrum ullamcorper. Morbi vestibulum, orci vitae mattis efficitur, leo urna gravida elit, quis luctus est risus id dolor. Ut tempor, dolor ac tincidunt pellentesque, ipsum turpis venenatis ante, sit amet luctus odio nulla et ante. Quisque eu mauris nec massa egestas interdum. Vestibulum ut lacus nec nisl vehicula pulvinar. Maecenas efficitur magna vitae tellus elementum ullamcorper. Nunc turpis sapien, ultrices id aliquet sit amet, semper vitae massa. Nunc blandit ut tellus nec varius.</p>
-            <p>Praesent sed lorem eros. Ut sit amet urna nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ac interdum tortor, nec bibendum mi. Vestibulum maximus ultricies dolor rutrum cursus. Nulla condimentum turpis quis ullamcorper finibus. Nunc et ipsum euismod, gravida ante id, dapibus elit. Morbi sit amet dapibus eros. Maecenas et tortor eget mi volutpat mollis sed at nunc. Aenean finibus eros vel vehicula rutrum. Curabitur rutrum velit non aliquam varius. Phasellus ut vulputate est. Sed lectus sem, dignissim a vulputate quis, cursus quis ex. Donec cursus eros vel magna pulvinar, et pellentesque velit posuere. Donec sollicitudin eros nec turpis molestie posuere. Morbi commodo enim in faucibus feugiat.</p>
+    <div class="intro-container">
+        <div class="intro-text">
+            <p><i>This document is primarily aimed at signatory organizations of the <a href="https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024/frontier-ai-safety-commitments-ai-seoul-summit-2024">Frontier AI Safety Commitments</a>, though we hope that all AI developers will find this guide useful.</i></p>
+
+            <p>The Frontier AI Safety Commitments at the AI Seoul Summit aim to ensure that frontier AI developers (1) effectively plan to responsibly manage risk from powerful AI systems, (2) develop internal structures to hold themselves accountable for safe development and deployment, and (3) make their safety plans appropriately transparent to external actors. To this end, the 16 signatory companies agreed to publish a document called a safety framework that demonstrates the fulfillment of eight specific commitments before the upcoming AI Summit in France.</p>
+            
+            <p>In this document, we provide a step-by-step guide to making such a safety framework. We reference the following existing safety frameworks: <a href="https://cdn.openai.com/openai-preparedness-framework-beta.pdf">OpenAI's Preparedness Framework</a>, <a href="https://www-cdn.anthropic.com/1adf000c8f675958c2ee23805d91aaade1cd4613/responsible-scaling-policy.pdf">Anthropic's Responsible Scaling Policy</a>, and <a href="https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/introducing-the-frontier-safety-framework/fsf-technical-report.pdf">Google DeepMind's Frontier Safety Framework</a>.</p>
         </div>
 
-        <div class="auxiliary-box" data-section="1">
-            <div class="tabs">
-                <button class="tab active" data-tab="1">Type A</button>
-                <button class="tab" data-tab="2">Type B</button>
-                <button class="tab" data-tab="3">Type C</button>
-                <button class="tab" data-tab="4">Type D</button>
-            </div>
-            <div class="tab-contents-wrapper">
-                <div class="tab-content active" data-tab="1">
-                    <h3>Section 1 - Type A</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                </div>
-                <div class="tab-content" data-tab="2">
-                    <h3>Section 1 - Type B</h3>
-                    <p>Curabitur suscipit dui sapien, ut mollis nulla posuere eget. Vivamus sodales venenatis nisl sed accumsan. Proin sed consectetur mi, id varius dui. Integer cursus augue sit amet porta luctus. Aenean auctor ipsum a sollicitudin scelerisque. Fusce vel enim dignissim, viverra elit suscipit, tristique nisi. Nam imperdiet, leo non tristique tempor, tellus erat rhoncus augue, eget blandit arcu quam in urna. Nulla facilisi. In sit amet nunc non massa malesuada tempus. Suspendisse id odio mollis, eleifend sapien in, sagittis arcu. Morbi consectetur turpis tortor, quis interdum nunc aliquam et. In suscipit est non lorem rutrum commodo. Morbi at aliquam enim. Nulla sollicitudin tempus sollicitudin. Sed sed urna augue. Ut lobortis molestie mi, et vestibulum lectus condimentum ut.</p>
-                    <p>Duis tellus felis, convallis id tincidunt in, commodo nec dolor. Mauris sed vestibulum ipsum. Quisque orci enim, faucibus nec venenatis efficitur, lacinia vel risus. Donec euismod nisi quis augue tincidunt accumsan. Pellentesque eu tellus eget dolor efficitur convallis. Curabitur consequat sollicitudin blandit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque ac metus id sem consequat bibendum a ut sapien. Sed sodales est sed cursus maximus. Aenean condimentum ligula sit amet nulla euismod, in fringilla libero tincidunt. Vestibulum facilisis viverra dignissim. Donec et purus id tortor aliquam elementum. Aliquam purus felis, dignissim nec augue a, molestie euismod dolor. Fusce varius nisl nunc, eget feugiat sem sodales sed. Praesent scelerisque hendrerit suscipit. Ut in vestibulum quam, sit amet accumsan lacus.</p>
-                </div>
-                <div class="tab-content" data-tab="3">
-                    <h3>Section 1 - Type C</h3>
-                    <p>Vivamus sed congue dolor. Morbi lacinia augue ac rutrum ullamcorper. Morbi vestibulum, orci vitae mattis efficitur, leo urna gravida elit, quis luctus est risus id dolor. Ut tempor, dolor ac tincidunt pellentesque, ipsum turpis venenatis ante, sit amet luctus odio nulla et ante. Quisque eu mauris nec massa egestas interdum. Vestibulum ut lacus nec nisl vehicula pulvinar. Maecenas efficitur magna vitae tellus elementum ullamcorper. Nunc turpis sapien, ultrices id aliquet sit amet, semper vitae massa. Nunc blandit ut tellus nec varius.</p>
-                </div>
-                <div class="tab-content" data-tab="4">
-                    <h3>Section 1 - Type D</h3>
-                    <p>Auxiliary content D for section 1...</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 2 -->
-        <div class="content-block" data-section="2">
-            <h2>Section 2</h2>
-            <p>Main content for section 2...</p>
-            <p>Duis tellus felis, convallis id tincidunt in, commodo nec dolor. Mauris sed vestibulum ipsum. Quisque orci enim, faucibus nec venenatis efficitur, lacinia vel risus.</p>
-        </div>
-
-        <div class="auxiliary-box" data-section="2">
-            <div class="tabs">
-                <button class="tab active" data-tab="1">Type A</button>
-                <button class="tab" data-tab="2">Type B</button>
-                <button class="tab" data-tab="3">Type C</button>
-                <button class="tab" data-tab="4">Type D</button>
-            </div>
-            <div class="tab-contents-wrapper">
-                <div class="tab-content active" data-tab="1">
-                    <h3>Section 2 - Type A</h3>
-                    <p>Auxiliary content A for section 2...</p>
-                </div>
-                <div class="tab-content" data-tab="2">
-                    <h3>Section 2 - Type B</h3>
-                    <p>Auxiliary content B for section 2...</p>
-                </div>
-                <div class="tab-content" data-tab="3">
-                    <h3>Section 2 - Type C</h3>
-                    <p>Auxiliary content C for section 2...</p>
-                </div>
-                <div class="tab-content" data-tab="4">
-                    <h3>Section 2 - Type D</h3>
-                    <p>Auxiliary content D for section 2...</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 3 -->
-        <div class="content-block" data-section="3">
-            <h2>Section 3</h2>
-            <p>Main content for section 3...</p>
-            <p>Vivamus sed congue dolor. Morbi lacinia augue ac rutrum ullamcorper. Morbi vestibulum, orci vitae mattis efficitur, leo urna gravida elit.</p>
-        </div>
-
-        <div class="auxiliary-box" data-section="3">
-            <div class="tabs">
-                <button class="tab active" data-tab="1">Type A</button>
-                <button class="tab" data-tab="2">Type B</button>
-                <button class="tab" data-tab="3">Type C</button>
-                <button class="tab" data-tab="4">Type D</button>
-            </div>
-            <div class="tab-contents-wrapper">
-                <div class="tab-content active" data-tab="1">
-                    <h3>Section 3 - Type A</h3>
-                    <p>Auxiliary content A for section 3...</p>
-                </div>
-                <div class="tab-content" data-tab="2">
-                    <h3>Section 3 - Type B</h3>
-                    <p>Auxiliary content B for section 3...</p>
-                </div>
-                <div class="tab-content" data-tab="3">
-                    <h3>Section 3 - Type C</h3>
-                    <p>Auxiliary content C for section 3...</p>
-                </div>
-                <div class="tab-content" data-tab="4">
-                    <h3>Section 3 - Type D</h3>
-                    <p>Auxiliary content D for section 3...</p>
-                </div>
-            </div>
+        <div class="commitment-table-wrapper">
+         <table class="commitment-table">
+           <thead>
+             <tr>
+               <th>Commitment</th>
+               <th>Actions Needed</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>I. Risk Assessments</td>
+               <td>
+                 <ol>
+                   <li>Identify which risks will be assessed.</li>
+                   <li>Describe how risks will be assessed.</li>
+                   <li>Describe when risks will be assessed.</li>
+                   <li>Describe how third-party risk assessments will be incorporated.</li>
+                 </ol>
+               </td>
+             </tr>
+             <tr>
+               <td>II. Risk Thresholds</td>
+               <td>
+                 <ol>
+                   <li>Set detailed thresholds where risk is intolerable.</li>
+                   <li>Describe how trusted actors can help set risk thresholds.</li>
+                 </ol>
+               </td>
+             </tr>
+             <tr>
+               <td>III. Mitigations</td>
+               <td>
+                 <ol>
+                   <li>Set a process for identifying and implementing risk mitigations.</li>
+                 </ol>
+               </td>
+             </tr>
+             <tr>
+               <td>IV. Mitigation Strategy</td>
+               <td>
+                 <ol>
+                   <li>Describe how to respond to risks above thresholds.</li>
+                   <li>Set thresholds where a model will not be deployed or developed.</li>
+                 </ol>
+               </td>
+             </tr>
+             <tr>
+               <td>V. Continual Improvement</td>
+               <td>
+                 <ol>
+                   <li>Describe how I-IV will be improved over time.</li>
+                 </ol>
+               </td>
+             </tr>
+             <tr>
+               <td>VI. Governance</td>
+               <td>
+                 <ol>
+                   <li>Describe an internal governance structure to enforce framework.</li>
+                 </ol>
+               </td>
+             </tr>
+             <tr>
+               <td>VII. Transparency</td>
+               <td>
+                 <ol>
+                   <li>Determine which sections of the framework can be shared publicly.</li>
+                   <li>Describe how trusted actors can see additional framework details.</li>
+                 </ol>
+               </td>
+             </tr>
+             <tr>
+               <td>VIII. Feedback Opportunities</td>
+               <td>
+                 <ol>
+                   <li>Describe if and how external actors can comment on the quality of the framework and the organization's implementation thereof.</li>
+                 </ol>
+               </td>
+             </tr>
+           </tbody>
+         </table>
         </div>
     </div>
 
-    <!-- Mobile Layout -->
-    <div class="mobile-sections">
-        <div class="mobile-section">
-            <div class="content-block">
-                <h2>Section 1</h2>
-                <p>Main content for section 1...</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed.</p>
-            </div>
-            <div class="auxiliary-box">
-                <div class="tabs">
-                    <button class="tab active" data-tab="1">Type A</button>
-                    <button class="tab" data-tab="2">Type B</button>
-                    <button class="tab" data-tab="3">Type C</button>
-                    <button class="tab" data-tab="4">Type D</button>
+    <div class="layout-wrapper">
+        <!-- Section 1 -->
+        <div class="section-wrapper" data-section="1">
+            <h2>Commitment 1 (Risk Assessments)</h2>
+
+            <div class="info-box">
+                <div class="info-box-header">
+                    Frontier AI Safety Commitments, Commitment 1
                 </div>
-                <div class="tab-contents-wrapper">
-                    <div class="tab-content active" data-tab="1">
-                        <h3>Section 1 - Type A</h3>
-                        <p>Auxiliary content A for section 1...</p>
+                <div class="info-box-content">
+                    <p>I. Assess the risks posed by their frontier models or systems across the AI lifecycle, including before deploying that model or system, and, as appropriate, before and during training. Risk assessments should consider model capabilities and the context in which they are developed and deployed, as well as the efficacy of implemented mitigations to reduce the risks associated with their foreseeable use and misuse. They should also consider results from internal and external evaluations as appropriate, such as by independent third-party evaluators, their home governments, and other bodies their governments deem appropriate.</p>
+                </div>
+            </div>
+            
+            <div class="subsection-wrapper" data-subsection="1.1">
+                <div class="content-block">
+                    <h3>Step 1: Risk Identification</h3>
+
+                <ol>
+                    <li>The commitments explicitly require consideration of <strong>Model Theft</strong> of unreleased model weights. Affirm that this risk vector will be considered.
+                        <ol>
+                            <li>Controls for model weights, both physical and digital, may go hand-in-hand with security controls for other sorts of intellectual property, such as codebases and algorithmic advances.</li>
+                        </ol>
+                    </li>
+                    <li>Potentially consider additional risk vectors as you see fit. This is not explicitly required by the commitments, but existing safety frameworks all consider potential risks downstream of model capabilities.
+                        <ol>
+                            <li>Generally, consider the range of capabilities of the model and its possible use-cases across deployment contexts. Some questions to consider:
+                                <ol>
+                                    <li>What hostile actors will be able to use the model? In what ways are they currently prevented from causing harm, and could the model help them overcome those?</li>
+                                    <li>In the course of normal use, how could the AI system cause accidental harm to the user? What is the potential scope of this harm?</li>
+                                </ol>
+                            </li>
+                            <li><a href="https://www.alignmentforum.org/posts/vERGLBpDE8m5mpT6t/autonomous-replication-and-adaptation-an-attempt-at-a"><strong>Autonomy</strong>, <strong>ML R&D</strong></a>, <a href="https://googleprojectzero.blogspot.com/2024/06/project-naptime.html"><strong>Cyber Offense</strong></a>, and <a href="https://www.rand.org/pubs/research_reports/RRA2977-1.html"><strong>Bioweapons</strong></a> are currently considered risk vectors in all published safety frameworks.</li>
+                            <li>This process requires judgment calls, and will vary depending on your organization.</li>
+                                <ol>
+                                    <li>We recommend taking into account existing practices as well as feedback from leadership, employees, and the public.</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <p>Risk vectors are specific mechanisms by which AI systems could cause harm, and include both deliberate malicious action as well as unintended consequences. Each risk vector may require a unique approach to assessment, monitoring, and mitigation.</p>
+
+                <p>While examining additional risk vectors can reduce the risk of a model causing harm, it also increases costs – requiring additional evaluations (including potentially <a href="https://arxiv.org/abs/2310.11986">more complex evaluations</a>), more mitigation steps, and a potential risk of delaying or stopping deployment. If your organization wants to consider a broader set of harms than are listed here, we recommend looking at the <a href="https://airisk.mit.edu/">AI Risk Repository</a>, which attempts to catalog many more AI harms.</p>
+
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
                     </div>
-                    <div class="tab-content" data-tab="2">
-                        <h3>Section 1 - Type B</h3>
-                        <p>Auxiliary content B for section 1...</p>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Subsection 1.1 - Type A</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Subsection 1.1 - Type B</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Subsection 1.1 - Type C</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat pharetra sem vitae mollis. Quisque viverra erat vel enim scelerisque tempus. Ut sed interdum neque, sed pellentesque mi. Etiam bibendum sem sapien, id posuere lectus laoreet sed. Aliquam eleifend, velit ac faucibus tristique, neque arcu dignissim neque, a ultricies tellus lectus sed sem. Curabitur faucibus risus eu ullamcorper varius. Donec arcu sapien, fermentum quis porta porta, placerat eget justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Subsection 1.1 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
                     </div>
-                    <div class="tab-content" data-tab="3">
-                        <h3>Section 1 - Type C</h3>
-                        <p>Auxiliary content C for section 1...</p>
+                </div>
+            </div>
+
+            <div class="subsection-wrapper" data-subsection="1.2">
+                <div class="content-block">
+                    <h3>Step 2: Assessment Description</h3>
+                    <div class="info-box">
+                        <div class="info-box-header">
+                            Frontier AI Safety Commitments, Commitment 1
+                        </div>
+                        <div class="info-box-content">
+                            <p>I. Assess the risks posed by their frontier models or systems across the AI lifecycle… Risk assessments should consider model capabilities and the context in which they are developed and deployed, as well as the efficacy of implemented mitigations to reduce the risks associated with their foreseeable use and misuse...</p>
+                        </div>
                     </div>
-                    <div class="tab-content" data-tab="4">
-                        <h3>Section 1 - Type D</h3>
-                        <p>Auxiliary content D for section 1...</p>
+
+                    <p>For each risk identified in Step 1:</p>
+                    <ol>
+                        <li>Describe the type of evaluation that will be used to assess the risk of an AI system. Some examples:
+                            <ol>
+                                <li>For <strong>Model Theft</strong>: Red-teaming can be a way to judge security measures effectively.</li>
+                                <li>For <strong>Bioweapons</strong>: Typical evaluations judge whether an AI system is better than a search engine at aiding:
+                                    <ol>
+                                        <li>Amateurs in producing known pathogens.</li>
+                                        <li>Expert in producing novel pathogens.</li>
+                                    </ol>
+                                </li>
+                                <li>For <strong>Cyber Offense</strong>: Capture-the-flag challenges are often used to estimate a system's cyberoffensive capabilities.</li>
+                                <li>Justify how each assessment is relevant to real-world outcomes.
+                                    <ol>
+                                        <li>For example: if <strong>Cyber Offense</strong> evaluations are developed with experts to mimic real-world codebases not in the training data, an AI system's performance on the assessment represents real hacking capability.</li>
+                                        <li>To ensure external validity and prevent "teaching to the test", perhaps detailed information on what is assessed should be limited even within a given organization.</li>
+                                    </ol>
+                                </li>
+                                <li>Options exist for non-capability-based evaluations for certain risk domains. For example:
+                                    <ol>
+                                        <li>Scaling law analyses might be used to predict how <strong>Model Autonomy</strong> will increase without actually testing models.
+                                            <ol>
+                                                <li>However, this method may not be useful for judging <strong>Bioweapons</strong> risks, since narrow AI systems can still aid in dangerous tasks.</li>
+                                            </ol>
+                                        </li>
+                                        <li>Analyses of the training data to detect presence of examples of dangerous capabilities could be used to filter out <strong>Bioweapons</strong>-relevant data.</li>
+                                        <li>Forecasting of future capabilities can also be used to predict AI system capabilities, as mentioned in OpenAI's Preparedness Framework.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>Describe how this type of evaluation can give information about how close to a risk threshold a given AI model is. This is required in Commitment 2.
+                            <ol>
+                                <li>For instance: in <strong>Cyber Offense</strong>, capture-the-flag challenges are often rated by difficulty. Completing more advanced challenges can signal that a model is approaching a risk threshold.</li>
+                                <li>In Anthropic's RSP v1, <em>fraction</em> of tasks completed in a given evaluation domain area is also taken as an indicator of growing model capabilities.</li>
+                            </ol>
+                        </li>
+                        <li>Provide any additional details on how the evaluations will be run. For instance:
+                            <ol>
+                                <li>Which capability elicitation techniques will be used.
+                                    <ol>
+                                        <li>Fine-tuning, agent scaffolding, external tools, etc.</li>
+                                    </ol>
+                                </li>
+                                <li>Which mitigations will be in-place, and how will they be tested against?
+                                    <ol>
+                                        <li>Will base models be tested, or only instruction-tuned/RL-tuned?</li>
+                                        <li>If, e.g. refusals are being used, how will evaluation prompts be picked? Can they be adversarially tuned?</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Subsection 1.2 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Subsection 1.2 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Subsection 1.2 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Subsection 1.2 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection-wrapper" data-subsection="1.3">
+                <div class="content-block">
+                    <h3>Step 3: Assessment Schedule</h3>
+
+                    <div class="info-box">
+                        <div class="info-box-header">
+                            Frontier AI Safety Commitments, Commitment 1
+                        </div>
+                        <div class="info-box-content">
+                            <p>I. Assess the risks posed [...], including before deploying that model or system, and, as appropriate, before and during training.</p>
+                        </div>
+                    </div>
+
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Subsection 1.3 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Subsection 1.3 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Subsection 1.3 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Subsection 1.3 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection-wrapper" data-subsection="1.4">
+                <div class="content-block">
+                    <h3>Subsection 1.4</h3>
+
+                    <div class="info-box">
+                        <div class="info-box-header">
+                            Key Points for 1.1
+                        </div>
+                        <div class="info-box-content">
+                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                        </div>
+                    </div>
+
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Subsection 1.4 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Subsection 1.4 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Subsection 1.4 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Subsection 1.4 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="mobile-section">
-            <div class="content-block">
-                <h2>Section 2</h2>
-                <p>Main content for section 2...</p>
-                <p>Duis tellus felis, convallis id tincidunt in, commodo nec dolor. Mauris sed vestibulum ipsum. Quisque orci enim, faucibus nec venenatis efficitur, lacinia vel risus.</p>
-            </div>
-            <div class="auxiliary-box">
-                <div class="tabs">
-                    <button class="tab active" data-tab="1">Type A</button>
-                    <button class="tab" data-tab="2">Type B</button>
-                    <button class="tab" data-tab="3">Type C</button>
-                    <button class="tab" data-tab="4">Type D</button>
+                <!-- Section 2 -->
+        <div class="section-wrapper" data-section="2">
+            <h2>Section 2</h2>
+            
+            <div class="subsection-wrapper" data-subsection="2.1">
+                <div class="content-block">
+                    <h3>Subsection 2.1</h3>
+
+                    <div class="info-box">
+                        <div class="info-box-header">
+                            Key Points for 1.1
+                        </div>
+                        <div class="info-box-content">
+                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                        </div>
+                    </div>
+
+                    <p>$FILLER_TEXT</p>
                 </div>
-                <div class="tab-contents-wrapper">
-                    <div class="tab-content active" data-tab="1">
-                        <h3>Section 2 - Type A</h3>
-                        <p>Auxiliary content A for section 2...</p>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
                     </div>
-                    <div class="tab-content" data-tab="2">
-                        <h3>Section 2 - Type B</h3>
-                        <p>Auxiliary content B for section 2...</p>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Subsection 2.1 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Subsection 2.1 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Subsection 2.1 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Subsection 2.1 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
                     </div>
-                    <div class="tab-content" data-tab="3">
-                        <h3>Section 2 - Type C</h3>
-                        <p>Auxiliary content C for section 2...</p>
+                </div>
+            </div>
+
+            <div class="subsection-wrapper" data-subsection="2.2">
+                <div class="content-block">
+                    <h3>Subsection 2.2</h3>
+
+                    <div class="info-box">
+                        <div class="info-box-header">
+                            Key Points for 1.1
+                        </div>
+                        <div class="info-box-content">
+                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                        </div>
                     </div>
-                    <div class="tab-content" data-tab="4">
-                        <h3>Section 2 - Type D</h3>
-                        <p>Auxiliary content D for section 2...</p>
+
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Subsection 2.2 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Subsection 2.2 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Subsection 2.2 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Subsection 2.2 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="mobile-section">
-            <div class="content-block">
-                <h2>Section 3</h2>
-                <p>Main content for section 3...</p>
-                <p>Vivamus sed congue dolor. Morbi lacinia augue ac rutrum ullamcorper. Morbi vestibulum, orci vitae mattis efficitur, leo urna gravida elit.</p>
-            </div>
-            <div class="auxiliary-box">
-                <div class="tabs">
-                    <button class="tab active" data-tab="1">Type A</button>
-                    <button class="tab" data-tab="2">Type B</button>
-                    <button class="tab" data-tab="3">Type C</button>
-                    <button class="tab" data-tab="4">Type D</button>
+        <!-- Section 3 (no subsections) -->
+        <div class="section-wrapper" data-section="3">
+            <h2>Section 3</h2>
+            <div class="info-box">
+                <div class="info-box-header">
+                    Key Points for 1.1
                 </div>
-                <div class="tab-contents-wrapper">
-                    <div class="tab-content active" data-tab="1">
-                        <h3>Section 3 - Type A</h3>
-                        <p>Auxiliary content A for section 3...</p>
+                <div class="info-box-content">
+                    <p>Specific details about this subsection and its importance in the overall context.</p>
+                </div>
+            </div>
+
+            <div class="content-and-aux-wrapper">
+                <div class="content-block">
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
                     </div>
-                    <div class="tab-content" data-tab="2">
-                        <h3>Section 3 - Type B</h3>
-                        <p>Auxiliary content B for section 3...</p>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Section 3 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Section 3 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Section 3 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Section 3 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
                     </div>
-                    <div class="tab-content" data-tab="3">
-                        <h3>Section 3 - Type C</h3>
-                        <p>Auxiliary content C for section 3...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section-wrapper" data-section="4">
+            <h2>Section 4</h2>
+            
+            <div class="subsection-wrapper" data-subsection="4.1">
+                <div class="content-block">
+                    <h3>Subsection 4.1</h3>
+                    <div class="info-box">
+                        <div class="info-box-header">
+                            Key Points for 1.1
+                        </div>
+                        <div class="info-box-content">
+                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                        </div>
                     </div>
-                    <div class="tab-content" data-tab="4">
-                        <h3>Section 3 - Type D</h3>
-                        <p>Auxiliary content D for section 3...</p>
+
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Subsection 4.1 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Subsection 4.1 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Subsection 4.1 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Subsection 4.1 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection-wrapper" data-subsection="4.2">
+                <div class="content-block">
+                    <h3>Subsection 4.2</h3>
+                    <div class="info-box">
+                        <div class="info-box-header">
+                            Key Points for 1.1
+                        </div>
+                        <div class="info-box-content">
+                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                        </div>
+                    </div>
+
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Subsection 4.2 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Subsection 4.2 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Subsection 4.2 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Subsection 4.2 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 5 (no subsections) -->
+        <div class="section-wrapper" data-section="5">
+            <h2>Section 5</h2>
+
+            <div class="info-box">
+                <div class="info-box-header">
+                    Key Points for 1.1
+                </div>
+                <div class="info-box-content">
+                    <p>Specific details about this subsection and its importance in the overall context.</p>
+                </div>
+            </div>
+
+            <div class="content-and-aux-wrapper">
+
+                <div class="content-block">
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Section 5 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Section 5 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Section 5 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Section 5 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6 (no subsections) -->
+        <div class="section-wrapper" data-section="6">
+            <h2>Section 6</h2>
+
+            <div class="info-box">
+                <div class="info-box-header">
+                    Key Points for 1.1
+                </div>
+                <div class="info-box-content">
+                    <p>Specific details about this subsection and its importance in the overall context.</p>
+                </div>
+            </div>
+
+
+            <div class="content-and-aux-wrapper">
+
+                <div class="content-block">
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Section 6 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Section 6 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Section 6 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Section 6 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="section-wrapper" data-section="7">
+            <h2>Section 7</h2>
+            
+            <div class="subsection-wrapper" data-subsection="7.1">
+                <div class="content-block">
+                    <h3>Subsection 7.1</h3>
+
+                    <div class="info-box">
+                        <div class="info-box-header">
+                            Key Points for 1.1
+                        </div>
+                        <div class="info-box-content">
+                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                        </div>
+                    </div>
+
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Subsection 7.1 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Subsection 7.1 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Subsection 7.1 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Subsection 7.1 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection-wrapper" data-subsection="7.2">
+                <div class="content-block">
+                    <h3>Subsection 7.2</h3>
+
+                    <div class="info-box">
+                        <div class="info-box-header">
+                            Key Points for 1.1
+                        </div>
+                        <div class="info-box-content">
+                            <p>Specific details about this subsection and its importance in the overall context.</p>
+                        </div>
+                    </div>
+
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Subsection 7.2 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Subsection 7.2 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Subsection 7.2 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Subsection 7.2 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8 (no subsections) -->
+        <div class="section-wrapper" data-section="8">
+            <h2>Section 8</h2>
+            <div class="info-box">
+                <div class="info-box-header">
+                    Key Points for 1.1
+                </div>
+                <div class="info-box-content">
+                    <p>Specific details about this subsection and its importance in the overall context.</p>
+                </div>
+            </div>
+
+            <div class="content-and-aux-wrapper">
+                <div class="content-block">
+                    <p>$FILLER_TEXT</p>
+                </div>
+                <div class="auxiliary-box">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="1" data-type="typeA">Type A</button>
+                        <button class="tab" data-tab="2" data-type="typeB">Type B</button>
+                        <button class="tab" data-tab="3" data-type="typeC">Type C</button>
+                        <button class="tab" data-tab="4" data-type="typeD">Type D</button>
+                    </div>
+                    <div class="tab-contents-wrapper">
+                        <div class="tab-content active" data-tab="1" data-type="typeA">
+                            <h3>Section 8 - Type A</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="2" data-type="typeB">
+                            <h3>Section 8 - Type B</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="3" data-type="typeC">
+                            <h3>Section 8 - Type C</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
+                        <div class="tab-content" data-tab="4" data-type="typeD">
+                            <h3>Section 8 - Type D</h3>
+                            <p>$FILLER_TEXT</p>
+                        </div>
                     </div>
                 </div>
             </div>
